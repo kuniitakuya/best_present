@@ -51,6 +51,17 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # Lintチェック
+  gem "rubocop", require: false
+  gem "rubocop-rails", require: false
+  gem 'rubocop-rspec', require: false
+  # N+1問題のチェック
+  gem "bullet"
+  #テスティングフレームワーク
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'capybara'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -62,5 +73,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  # デバック
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
-
