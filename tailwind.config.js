@@ -4,5 +4,14 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js'
-  ]
+  ],
+
+  plugins: [
+    require("daisyui")
+  ],
+
+  //daisyUIのテーマを設定
+  daisyui: {
+    themes: ["pastel"],
+  }
 }
