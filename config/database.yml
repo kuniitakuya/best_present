@@ -81,7 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: clchreabf0051bxquhbjtcola
-  username: clchreabd004zbxqu34nxht21
+  database: best_present_production
+  username: best_present
   password: <%= ENV["BEST_PRESENT_DATABASE_PASSWORD"] %>
   url: <%= ENV['DATABASE_URL'] %>
