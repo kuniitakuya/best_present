@@ -4,7 +4,7 @@
       <a class="btn btn-ghost normal-case text-xl">BESPRE</a>
     </div>
     <div class="flex-none gap-2">
-      <%# <div class="dropdown dropdown-end">
+      <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
           <div class="w-10 rounded-full">
             <img src="https://placeimg.com/80/80/people" />
@@ -17,14 +17,7 @@
               <span class="badge">New</span>
             </a>
           </li>
-          <li><a>Settings</a></li>
-          <li><a>Logout</a></li>
-        </ul>
-      </div> %>
-      <div class="flex-none">
-        <ul class="menu menu-horizontal px-1">
-          <li><a>新規登録</a></li>
-          <li><a>ログイン</a></li>
+          <li><%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %></li>
         </ul>
       </div>
     </div>
