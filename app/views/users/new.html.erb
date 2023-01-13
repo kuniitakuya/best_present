@@ -1,29 +1,33 @@
-<div class="text-2xl text-center font-semibold my-8">
-  <span>新規登録</span>
-</div>
-<%= form_with model: @user, local: true do |f| %>
-  <div class="space-y-4">
-    <div class="form-control w-full max-w-xs m-auto">
-      <span class="">Name</span>
-      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+<div class="py-8">
+  <div class="card w-96 bg-base-200 text-primary-content my-8 m-auto">
+    <div class="text-2xl text-center font-semibold my-8">
+      <h1>新規登録</h1>
     </div>
+    <%= form_with model: @user, local: true do |f| %>
+      <div class="space-y-4">
+        <div class="form-control w-full max-w-xs m-auto">
+          <span class="mb-2">ユーザー名</span>
+          <input type="text" placeholder="" class="input input-bordered bg-white w-full max-w-xs" />
+        </div>
 
-    <div class="form-control w-full max-w-xs m-auto">
-      <span class="">Email</span>
-      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-    </div>
+        <div class="form-control w-full max-w-xs m-auto">
+          <span class="mb-2">メールアドレス</span>
+          <input type="text" class="input input-bordered bg-white w-full max-w-xs" />
+        </div>
 
-    <div class="form-control w-full max-w-xs m-auto">
-      <span class="">Password</span>
-      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-    </div>
+        <div class="form-control w-full max-w-xs m-auto">
+          <span class="mb-2">パスワード</span>
+          <input type="text" class="input input-bordered bg-white w-full max-w-xs" />
+        </div>
 
-    <div class="form-control w-full max-w-xs m-auto">
-      <span class="">Password confirmation</span>
-      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-    </div>
-    <div class="text-center">
-      <%= f.submit '登録', class: 'btn btn-secondary my-8' %>
-    </div>
+        <div class="form-control w-full max-w-xs m-auto">
+          <span class="mb-2">パスワード確認</span>
+          <input type="text" class="input input-bordered bg-white w-full max-w-xs" />
+        </div>
+        <div class="text-center ">
+          <%= f.submit '登録', class: 'btn btn-primary text-red-100 my-8' %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
