@@ -1,0 +1,29 @@
+<div class="py-8">
+  <div class="card w-96 bg-base-200 text-primary-content my-8 m-auto">
+    <div class="text-2xl text-center font-semibold my-8">
+      <h1>ログイン</h1>
+    </div>
+    <%= form_with url: login_path, local: true do |f| %>
+      <div class="space-y-4">
+        <div class="w-full max-w-xs m-auto">
+          <div class="mb-2">
+            <%= f.label :email %>
+          </div>
+          <%= f.text_field :email, class: 'input input-bordered bg-white w-full max-w-xs' %>
+        </div>
+        <div class="w-full max-w-xs m-auto">
+          <div class="mb-2">
+            <%= f.label :password %>
+          </div>
+          <%= f.password_field :password, class: 'input input-bordered bg-white w-full max-w-xs' %>
+        </div>
+        <div class="text-center">
+          <%= f.submit "ログイン", class: "btn btn-primary btn-wide text-red-100 my-6" %>
+        </div>
+      </div>
+    <% end %>
+    <div class= "text-center pb-8">
+          <%= link_to "新規登録の方はこちら", new_user_path, class: "link link-hover" %>
+        </div>
+  </div>
+</div>
