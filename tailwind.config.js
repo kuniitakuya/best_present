@@ -13,5 +13,17 @@ module.exports = {
   //daisyUIのテーマを設定
   daisyui: {
     themes: ["retro"],
-  }
+  },
+
+  daisyui: {
+    themes: [
+      {
+        retro: {
+          ...require("daisyui/src/colors/themes")["[data-theme=retro]"],
+          "base-100": "#E8DCBC",
+          "accent-focus": "#F5D174",
+        },
+      },
+    ],
+  },
 }
