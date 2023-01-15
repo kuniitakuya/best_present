@@ -1,16 +1,16 @@
 <header>
-  <div class="navbar bg-accent-focus">
-    <div class="flex-1">
-      <a class="btn btn-ghost normal-case text-xl">BESPRE</a>
+  <div class='navbar bg-accent-focus'>
+    <div class='flex-1'>
+      <%= link_to image_tag('bespre_title.png'), root_path, class: 'ml-4 w-40 h-8' %>
     </div>
-    <div class="flex-none gap-2">
-      <div class="dropdown dropdown-end">
-        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-          <div class="w-10 rounded-full">
-            <img src="" />
+    <div class='flex-none gap-2'>
+      <div class='dropdown dropdown-end'>
+        <label tabindex='0' class='btn btn-ghost btn-circle avatar'>
+          <div class='w-10 rounded-full'>
+            <img src='#' />
           </div>
         </label>
-        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+        <ul tabindex='0' class='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'>
           <li><%= link_to 'プロフィール', '#', class: 'dropdown-item' %></li>
           <li><%= link_to '欲しいものリスト', '#', class: 'dropdown-item' %></li>
           <li><%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %></li>
