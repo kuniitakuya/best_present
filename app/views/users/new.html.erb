@@ -1,7 +1,7 @@
 <div class="py-8">
   <div class="card w-96 bg-base-200 text-primary-content my-8 m-auto">
     <div class="text-2xl text-center font-semibold my-8">
-      <h1>新規登録</h1>
+      <h1><%= t '.title' %></h1>
     </div>
     <%= form_with model: @user, local: true do |f| %>
       <div class="space-y-4">
@@ -30,12 +30,12 @@
           <%= f.password_field :password_confirmation, class: 'input input-bordered bg-white w-full max-w-xs' %>
         </div>
         <div class="text-center">
-          <%= f.submit '登録', class: 'btn btn-primary btn-wide text-red-100 my-8' %>
+          <%= f.submit (t 'defaults.register'), class: 'btn btn-primary btn-wide text-red-100 my-8' %>
         </div>
       </div>
     <% end %>
     <div class='text-center pb-8'>
-      <%= link_to 'ログインページへ', login_path, class: "link link-hover" %>
+      <%= link_to (t '.to_login_page'), login_path, class: "link link-hover" %>
     </div>
   </div>
 </div>
