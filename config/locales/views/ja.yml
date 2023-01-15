@@ -1,0 +1,20 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    logout: 'ログアウト'
+    sign_up: '新規登録'
+    register: '登録'
+    profile: 'プロフィール'
+    wish_lists: '欲しいものリスト'
+  users:
+    new:
+      title: '新規登録'
+      to_login_page: 'ログインページへ'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      to_register_page: '新規登録の方はこちら'
+      password_forget: 'パスワードをお忘れの方はこちら'
+  profiles:
+    show:
+      title: 'プロフィール'
