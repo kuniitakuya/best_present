@@ -20,7 +20,7 @@ module.exports = {
       {
         retro: {
           ...require("daisyui/src/colors/themes")["[data-theme=retro]"],
-          "base-100": "#E8DCBC",
+          "base-100": "#FBECC6",
           "accent-focus": "#F5D174",
         },
       },
