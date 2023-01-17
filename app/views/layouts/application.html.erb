@@ -7,12 +7,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <%= javascript_import_module_tag 'controllers/application' %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body id="app">
+  <body>
     <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>
