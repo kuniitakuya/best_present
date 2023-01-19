@@ -1,0 +1,19 @@
+<% content_for(:title, t('.title')) %>
+  <button class="btn btn-link">Button</button>
+  <h1 class="float-left mb-5"><%= t('.title') %></h1>
+  <%= link_to t('defaults.edit'), edit_mypage_path, class: 'btn btn-accent' %>
+  <table class="table">
+    <tr>
+      <th scope="row"><%= t(User.human_attribute_name(:email)) %></th>
+      <td><%= current_user.email %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t(User.human_attribute_name(:name)) %></th>
+      <td><%= current_user.name %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t(User.human_attribute_name(:avatar)) %></th>
+      <td><%= image_tag current_user.avatar.url, size: '50x50' %></td>
+    </tr>
+  </table>
+</div>
