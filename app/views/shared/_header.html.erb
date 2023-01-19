@@ -7,11 +7,11 @@
       <div class='dropdown dropdown-end'>
         <label tabindex='0' class='btn btn-ghost btn-circle avatar'>
           <div class='w-10 rounded-full'>
-            <img src='#' />
+            <%= image_tag current_user.avatar_url, size: '40x40', class: 'rounded-circle mr15'%>
           </div>
         </label>
         <ul tabindex='0' class='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'>
-          <li><%= link_to (t 'defaults.profile'), '#', class: 'dropdown-item' %></li>
+          <li><%= link_to (t 'defaults.mypages'), mypage_path, class: 'dropdown-item' %></li>
           <li><%= link_to (t 'defaults.wish_lists'), '#', class: 'dropdown-item' %></li>
           <li><%= button_to (t 'defaults.logout'), logout_path, class: 'dropdown-item', method: :delete %></li>
         </ul>
