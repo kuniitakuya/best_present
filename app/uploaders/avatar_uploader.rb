@@ -1,4 +1,4 @@
-class AvaterUploader < CarrierWave::Uploader::Base
+class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -18,7 +18,6 @@ class AvaterUploader < CarrierWave::Uploader::Base
     'sample.jpg'
   end
 
-
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
@@ -31,10 +30,10 @@ class AvaterUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
-  # Add an allowlist of extensions which are allowed to be uploaded.
+  # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Override the filename of the uploaded files:
