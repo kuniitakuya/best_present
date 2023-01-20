@@ -12,10 +12,6 @@ module.exports = {
 
   //daisyUIのテーマを設定
   daisyui: {
-    themes: ["retro"],
-  },
-
-  daisyui: {
     themes: [
       {
         retro: {
