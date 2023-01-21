@@ -10,7 +10,11 @@ module.exports = {
     require("daisyui")
   ],
 
-  //daisyUIのテーマを設定
+   //daisyUIのテーマを設定
+  daisyui: {
+    themes: ["retro"],
+  },
+
   daisyui: {
     themes: [
       {
