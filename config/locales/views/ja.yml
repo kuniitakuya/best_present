@@ -6,7 +6,7 @@ ja:
     register: '登録'
     mypages: 'マイページ'
     wish_lists: '欲しいものリスト'
-    edit: '編集'
+    edit: 'プロフィール編集'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
