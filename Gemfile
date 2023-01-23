@@ -54,6 +54,7 @@ gem 'rails-i18n'
 
 # 画像アップロード
 gem 'carrierwave'
+gem 'mini_magick'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
