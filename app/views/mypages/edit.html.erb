@@ -5,13 +5,13 @@
     </div>
     <%= form_with model: @user, url: mypage_path, local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <div class="flex flex-wrap space-y-4">
+      <div class="flex flex-nowrap space-y-4">
         <div class="text-center space-y-4">
           <%= image_tag @user.avatar.url,
                             class: 'rounded-circle  m-auto',
                             id: 'preview',
                             size: '100x100' %>
-          <%= f.file_field :avatar, onchange: 'previewFileWithId(preview)', accept: 'image/*' %>
+          <%= f.file_field :avatar, onchange: 'previewFileWithId(preview)', accept: 'image/*', class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
           <%= f.hidden_field :avatar_cache %>
         </div>
         <div>
