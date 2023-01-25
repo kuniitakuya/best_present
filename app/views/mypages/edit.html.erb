@@ -1,0 +1,36 @@
+<% content_for(:title, t('.title')) %>
+  <div class="py-8 bg-accent-focus mx-96 my-16 rounded-3xl">
+    <div class="my-6 text-3xl text-center font-semibold">
+      <h1><%= t '.title' %></h1>
+    </div>
+    <%= form_with model: @user, url: mypage_path, local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="space-y-10 mt-8">
+        <div class="text-center space-y-8">
+          <%= image_tag @user.avatar.url, class: 'm-auto rounded-full', size: '200x200' %>
+          <%= f.file_field :avatar, onchange: 'previewFileWithId(preview)', accept: 'image/*', class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
+          <%= f.hidden_field :avatar_cache %>
+        </div>
+        <div>
+          <div class="space-y-8">
+            <div class="w-full max-w-xs m-auto">
+              <div class="mb-2">
+                <%= f.label :name %>
+              </div>
+              <%= f.text_field :name, class: 'input input-bordered bg-white w-full max-w-xs' %>
+            </div>
+            <div class="w-full max-w-xs m-auto">
+              <div class="mb-2">
+                <%= f.label :email %>
+              </div>
+              <%= f.text_field :email, class: 'input input-bordered bg-white w-full max-w-xs' %>
+            </div>
+            <div class="text-center">
+              <%= f.submit class: "btn btn-primary btn-wide text-red-100 my-6" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
