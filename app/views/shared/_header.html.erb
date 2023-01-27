@@ -11,9 +11,9 @@
           </div>
         </label>
         <ul tabindex='0' class='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'>
-          <li><%= link_to (t 'defaults.mypages'), mypage_path, class: 'dropdown-item' %></li>
-          <li><%= link_to (t 'defaults.wish_lists'), wish_lists_path, class: 'dropdown-item' %></li>
-          <li><%= button_to (t 'defaults.logout'), logout_path, class: 'dropdown-item', method: :delete %></li>
+          <li><%= link_to (t 'defaults.mypages'), mypage_path %></li>
+          <li><%= link_to (t 'defaults.wish_lists'), wish_lists_path %></li>
+          <li><%= button_to (t 'defaults.logout'), logout_path, method: :delete %></li>
         </ul>
       </div>
     </div>
