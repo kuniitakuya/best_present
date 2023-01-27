@@ -7,6 +7,8 @@ ja:
     mypages: 'マイページ'
     wish_lists: '欲しいものリスト'
     edit: 'プロフィール編集'
+    list_name: 'リスト名'
+    create: 'リスト作成'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
@@ -40,4 +42,8 @@ ja:
       title: 'プロフィール編集'
   wish_lists:
     index:
+      title: '欲しいものリスト一覧'
       no_result: '欲しいものリストがありません。'
+      create: 'リスト作成'
+    new:
+      title: '欲しいものリスト作成'
