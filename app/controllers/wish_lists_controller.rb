@@ -8,7 +8,7 @@ class WishListsController < ApplicationController
   end
 
   def create
-    @wish_list = current_user.wish_lists.build(wish_list_params)
+    @wish_list = current_user.wish_lists.new(wish_list_params)
     if @wish_list.save
       redirect_to wish_lists_path, success: t('defaults.message.created', item: WishList.model_name.human)
     else
