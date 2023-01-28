@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      wish_list: '欲しいものリスト'
     attributes:
       user:
         email: 'メールアドレス'
@@ -9,3 +10,5 @@ ja:
         password_confirmation: 'パスワード確認'
         name: '名前'
         avatar: 'アイコン'
+      wish_list:
+        list_name: 'リスト名'
