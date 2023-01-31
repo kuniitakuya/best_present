@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'items/search'
   root 'static_pages#top'
 
   get 'login', to: 'user_sessions#new'

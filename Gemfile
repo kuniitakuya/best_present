@@ -56,6 +56,9 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
 
+# 楽天商品検索API
+gem 'rakuten_web_service'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
