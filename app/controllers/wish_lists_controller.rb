@@ -1,6 +1,6 @@
 class WishListsController < ApplicationController
   def index
-    @wish_lists = WishList.all.includes(:user).order(created_at: :desc)
+    @wish_lists = WishList.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
