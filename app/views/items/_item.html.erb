@@ -1,7 +1,9 @@
-<% @items.first(10).each do |item| %>
-  <div class="list-group">
-    <%= image_tag (item['smallImageUrls'][0]) %>
-    <%= link_to item.name, "#{item.url}" %>
-    <%= number_with_delimiter(item.price) %>円
+<% @items.each do |item| %>
+  <div class="card card-compact w-60 bg-base-200 shadow-xl m-8">
+    <%= image_tag (item['mediumImageUrls'][0]) %>
+    <div class="card-body">
+      <h2 class="card-title"><%= link_to item.name, "#{item.url}", target: :_blank, rel: "noopener noreferrer" %></h2>
+      <p><%= number_with_delimiter(item.price) %>円</p>
+    </div>
   </div>
 <% end %>
