@@ -59,6 +59,9 @@ gem 'mini_magick'
 # 楽天商品検索API
 gem 'rakuten_web_service'
 
+# ページネーション
+gem 'kaminari'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
