@@ -1,0 +1,7 @@
+<% content_for(:title, @wish_list.list_name) %>
+<div class="pt-3 my-16 w-96 text-primary-content m-auto">
+  <div class="mb-14 text-3xl text-center font-semibold">
+    <h1><%= t('.title') %></h1>
+  </div>
+  <%= render 'form', { wish_list: @wish_list } %>
+</div>
