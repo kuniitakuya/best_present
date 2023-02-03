@@ -23,7 +23,9 @@ class WishListsController < ApplicationController
     @wish_list = WishList.find(params[:id])
   end
 
-  def edit; end
+  def edit
+    @wish_list = current_user.wish_lists.find(params[:id])
+  end
 
   def update
     if @wish_list.update(wish_list_params)
