@@ -7,8 +7,11 @@ ja:
     mypages: 'マイページ'
     wish_lists: '欲しいものリスト'
     edit: 'プロフィール編集'
-    list_name: 'リスト名'
-    create: 'リスト作成'
+    list:
+      name: 'リスト名'
+      create: '作成'
+      edit: '編集'
+      delete: '削除'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
@@ -18,6 +21,10 @@ ja:
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
       not_authorized: '権限がありません'
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
   users:
     new:
       title: '新規登録'
@@ -46,4 +53,8 @@ ja:
       no_result: '欲しいものリストがありません。'
       create: 'リスト作成'
     new:
-      title: '欲しいものリスト作成'
+      title: 'リスト作成'
+    show:
+      title: 'リスト詳細'
+    edit:
+      title: 'リスト編集'
