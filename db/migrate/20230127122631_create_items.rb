@@ -5,6 +5,7 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.integer :price, null: false
       t.string :image
       t.string :url, null: false
+      t.references :wish_list, foreign_key: true
 
       t.timestamps
     end

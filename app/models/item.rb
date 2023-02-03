@@ -1,4 +1,3 @@
 class Item < ApplicationRecord
-  has_many :wish_lists, through: :wish_list_items
-  has_many :wish_list_items
+  belogns_to :wish_lists
 end
