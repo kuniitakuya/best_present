@@ -1,4 +1,6 @@
 class WishListsController < ApplicationController
+  before_action :set_wishlist, only: [:edit, :update, :destroy]
+
   def index
     @wish_lists = WishList.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
@@ -21,11 +23,28 @@ class WishListsController < ApplicationController
     @wish_list = WishList.find(params[:id])
   end
 
-  def edit
+  def edit; end
 
+  def update
+    if @wish_list.update(wish_list_params)
+      redirect_to @wish_list, success: t('defaults.message.updated', item: WishList.model_name.human)
+    else
+      flash.now['danger'] = t('defaults.message.not_updated', item: WishList.model_name.human)
+      render :edit
+    end
   end
 
+  def destroy
+    @wish_list.destroy!
+    redirect_to wish_lists_path, success: t('defaults.message.deleted', item: WishList.model_name.human)
+  end
+
+
   private
+
+  def set_wishlist
+    @wish_list = current_user.wish_lists.find(params[:id])
+  end
 
   def wish_list_params
     params.require(:wish_list).permit(:list_name)
