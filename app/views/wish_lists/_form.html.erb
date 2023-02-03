@@ -2,10 +2,10 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="space-y-4 mt-5">
     <div class="w-full max-w-xs m-auto">
-      <%= f.text_field :list_name, placeholder: (t 'defaults.list_name'), class: 'input input-bordered bg-white w-full max-w-xs' %>
+      <%= f.text_field :list_name, placeholder: (t 'defaults.list.name'), class: 'input input-bordered bg-white w-full max-w-xs' %>
     </div>
     <div class="text-center">
-      <%= f.submit (t 'defaults.create'), class: 'btn btn-primary btn-wide text-red-100 my-8' %>
+      <%= f.submit class: 'btn btn-primary btn-wide text-red-100 my-8' %>
     </div>
   </div>
 <% end %>
