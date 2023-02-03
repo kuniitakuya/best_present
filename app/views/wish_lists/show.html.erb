@@ -1,8 +1,15 @@
-<div class="card w-60 bg-base-200 shadow-xl m-8">
-  <figure class="px-10 pt-2">
-    <%= image_tag "present_box.png", class: "rounded-xl", size: "150x150" %>
-  </figure>
-  <div class="card-body items-center text-center pt-5">
-    <h2 class="card-title"><%= @wish_list.list_name %></h2>
+<% content_for(:title, @wish_list.list_name) %>
+<div class="pt-3 my-16">
+  <div class="mb-16 text-3xl text-center font-semibold">
+    <h1><%= t('.title') %></h1>
+  </div>
+  <div class="card w-60 bg-base-200 shadow-xl m-8 m-auto">
+    <figure class="px-10 pt-2">
+      <%= image_tag "present_box.png", class: "rounded-xl", size: "150x150" %>
+    </figure>
+    <div class="card-body items-center text-center pt-5">
+      <h2 class="card-title"><%= @wish_list.list_name %></h2>
+    </div>
+    <%= render 'crud_menus', wish_list: @wish_list %>
   </div>
 </div>
