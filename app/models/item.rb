@@ -1,3 +1,3 @@
 class Item < ApplicationRecord
-  has_many :wish_lists, dependent: :destroy
+  belongs_to :wish_list
 end
