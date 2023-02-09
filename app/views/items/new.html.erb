@@ -3,15 +3,15 @@
     <h1>商品を検索</h1>
   </div>
   <div class="form-control">
-    <%= form_with url: items_search_path, method: :get, local: true do |f| %>
+    <%= form_with url: new_wish_list_item_path, method: :get, local: true do |f| %>
       <div class="input-group justify-center">
-          <%= f.text_field :keyword, value: params[:keyword], class: "input input-bordered text-center" %>
+          <%= f.search_field :keyword, value: params[:keyword], class: "input input-bordered text-center" %>
           <%= f.submit '検索', class: "btn btn-square" %>
       </div>
     <% end %>
     <div class="flex flex-wrap justify-evenly mx-20">
       <% if @items.present? %>
-        <%= render 'items/item' %>
+        <%= render 'item' %>
       <% end %>
     </div>
   </div>

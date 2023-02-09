@@ -3,6 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       wish_list: '欲しいものリスト'
+      item: '商品'
     attributes:
       user:
         email: 'メールアドレス'

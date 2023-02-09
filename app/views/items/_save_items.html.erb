@@ -1,0 +1,14 @@
+<% item.each do |item| %>
+  <div class="card card-compact w-60 bg-base-200 shadow-xl m-8">
+    <%= image_tag item.image %>
+    <div class="card-body">
+      <h2 class="card-title"><%= link_to item.item_name, "#{item.url}", target: :_blank, rel: "noopener noreferrer" %></h2>
+      <p><%= number_with_delimiter(item.price) %>円</p>
+      <div class="flex justify-evenly my-4">
+        <% if current_user.own?(item) %>
+          <%= button_to t('defaults.list.delete'), wish_list_item_path(item), class: "btn btn-active btn-accent",method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

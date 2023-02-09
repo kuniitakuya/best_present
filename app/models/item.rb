@@ -1,4 +1,9 @@
 class Item < ApplicationRecord
-  has_many :wish_lists, through: :wish_list_items
-  has_many :wish_list_items
+  belongs_to :wish_list
+  belongs_to :user
+
+  validates :item_name, presence: true
+  validates :price, presence: true
+  validates :url, presence: true
+  validates :save_list, presence: true
 end
