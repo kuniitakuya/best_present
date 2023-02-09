@@ -10,6 +10,11 @@
     <div class="card-body items-center text-center pt-5">
       <h2 class="card-title"><%= @wish_list.list_name %></h2>
     </div>
-    <%= render 'crud_menus', wish_list: @wish_list %>
+    <div>
+        <%= render 'items/save_items', { item: @item }  %>
+    </div>
+    <div class="flex justify-evenly my-4">
+      <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-active btn-primary" %>
+    </div>
   </div>
 </div>

@@ -27,5 +27,7 @@
       <p><%= t('.no_result') %></p>
     <% end %>
   </div>
-  <%= paginate @wish_lists %>
+  <% if @wish_lists.present? %>
+    <%= paginate @wish_lists %>
+  <% end %>
 </div>
