@@ -1,8 +1,8 @@
 class WishListsController < ApplicationController
-  before_action :set_wishlist, only: [:edit, :update, :destroy]
+  before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wish_lists = WishList.all.includes(:user).order(created_at: :desc).page(params[:page])
+    @wish_lists = current_user.wish_lists.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -10,9 +10,9 @@ class WishListsController < ApplicationController
   end
 
   def create
-    @wish_list = current_user.wish_lists.new(wish_list_params)
+    @wish_list = current_user.wish_lists.build(wish_list_params)
     if @wish_list.save
-      redirect_to wish_lists_path, success: t('defaults.message.created', item: WishList.model_name.human)
+      redirect_to wish_list_path(@wish_list), success: t('defaults.message.created', item: WishList.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_created', item: WishList.model_name.human)
       render :new
@@ -20,12 +20,10 @@ class WishListsController < ApplicationController
   end
 
   def show
-    @wish_list = WishList.find(params[:id])
+    @item = @wish_list.items.includes(:user).order(created_at: :desc)
   end
 
-  def edit
-    @wish_list = current_user.wish_lists.find(params[:id])
-  end
+  def edit; end
 
   def update
     if @wish_list.update(wish_list_params)
@@ -38,7 +36,7 @@ class WishListsController < ApplicationController
 
   def destroy
     @wish_list.destroy!
-    redirect_to wish_lists_path, success: t('defaults.message.deleted', item: WishList.model_name.human)
+    redirect_to request.referer, success: t('defaults.message.deleted', item: WishList.model_name.human)
   end
 
 
