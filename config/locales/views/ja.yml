@@ -10,12 +10,15 @@ ja:
     list:
       name: 'リスト名'
       create: '作成'
+      add: '追加'
       edit: '編集'
       delete: '削除'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
+      add: "%{item}を追加しました"
+      not_add: "%{item}を追加できませんでした"
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
@@ -56,5 +59,7 @@ ja:
       title: 'リスト作成'
     show:
       title: 'リスト詳細'
+      list:
+        add: '商品を追加'
     edit:
       title: 'リスト編集'
