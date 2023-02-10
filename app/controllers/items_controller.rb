@@ -6,8 +6,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = current_user.items.new(item_params)
     @wish_list = current_user.wish_lists.find(params[:wish_list_id])
+    @item = current_user.items.new(item_params)
     if @item.save
       redirect_to wish_list_path(@wish_list), success: t('defaults.message.add', item: Item.model_name.human)
     else
@@ -53,6 +53,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:item_name, :price, :image, :url, :save_list).merge(wish_list_id: params[:wish_list_id])
+    params.require(:item).permit(:item_name, :price, :image, :url, :save_list).merge(wish_list_id: @wish_list.id)
   end
 end
