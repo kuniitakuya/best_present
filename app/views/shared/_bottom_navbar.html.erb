@@ -1,0 +1,36 @@
+<nav class="fixed bottom-0 left-0 right-0 bg-accent-focus py-2">
+  <ul class="flex justify-evenly">
+    <li class="">
+      <%= link_to root_path do %>
+        <button class="w-20">
+          <%= image_tag "top.png", :size => '24x24', class: "ml-7" %>
+          <span class="text-sm"><%=  t('defaults.home') %></span>
+        </button>
+      <% end %>
+    </li>
+    <li class=" ">
+      <%= link_to wish_lists_path do %>
+        <button class="w-20">
+          <%= image_tag "list.png", :size => '24x24', class: "ml-7" %>
+          <span class="text-sm"><%= t('defaults.wish_lists')  %></span>
+        </button>
+      <% end %>
+    </li>
+    <li class=" ">
+      <%= link_to mypage_path do %>
+        <button class="w-20">
+          <%= image_tag "mypage.png", :size => '24x24', class: "ml-7" %>
+          <span class="text-sm"><%= t('defaults.mypages')  %></span>
+        </button>
+      <% end %>
+    </li>
+    <li class=" ">
+      <%= button_to logout_path, method: :delete do%>
+        <div class="w-20 ">
+          <%= image_tag "logout.png", :size => '24x24', class: "ml-7" %>
+          <span class="text-sm"><%= t('defaults.logout')  %></span>
+        </div>
+      <% end %>
+    </li>
+  </ul>
+</nav>
