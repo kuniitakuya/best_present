@@ -1,0 +1,28 @@
+<nav class="fixed bottom-0 left-0 right-0 bg-accent-focus py-2">
+  <ul class="flex justify-evenly">
+    <li>
+      <%= link_to root_path do %>
+        <button class="w-20">
+          <%= image_tag "top.png", :size => '24x24', class: "ml-7" %>
+          <span class=""><%=  t('defaults.home') %></span>
+        </button>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to new_user_path do %>
+        <button class="w-20">
+          <%= image_tag "signup.png", :size => '24x24', class: "ml-7" %>
+          <span class=""><%= t('defaults.sign_up')  %></span>
+        </button>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to login_path do %>
+        <button class="w-20">
+          <%= image_tag "login.png", :size => '24x24', class: "ml-7" %>
+          <span class=""><%= t('defaults.login')  %></span>
+        </button>
+      <% end %>
+    </li>
+  </ul>
+</nav>
