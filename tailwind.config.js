@@ -6,15 +6,19 @@ module.exports = {
     './app/javascript/**/*.js'
   ],
 
+  theme: {
+    extend: {
+      fontFamily: {
+        sawarabi: ["Sawarabi Mincho"],
+      },
+    },
+  },
+
   plugins: [
     require("daisyui")
   ],
 
    //daisyUIのテーマを設定
-  daisyui: {
-    themes: ["retro"],
-  },
-
   daisyui: {
     themes: [
       {
