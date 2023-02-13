@@ -1,11 +1,11 @@
 <% @items.each do |item| %>
-  <div class="card card-compact w-60 bg-base-200 shadow-xl m-8">
+  <div class="card card-compact w-60 bg-base-200 rounded-3xl text-center shadow-xl m-8">
     <%= image_tag item.image %>
     <div class="card-body">
       <h2 class="card-title"><%= link_to item.item_name, "#{item.url}", target: :_blank, rel: "noopener noreferrer" %></h2>
       <p><%= number_with_delimiter(item.price) %>円</p>
     </div>
-    <%= form_with model: item, url: wish_list_items_path, local: true do |f| %>
+    <%= form_with model: item, url: wish_list_items_path, class:"mb-4", local: true do |f| %>
       <%= f.hidden_field :item_name, :value => item.item_name %>
       <%= f.hidden_field :price, :value => item.price %>
       <%= f.hidden_field :image, :value => item.image %>

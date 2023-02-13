@@ -1,26 +1,24 @@
 <% content_for(:title, t('.title')) %>
 <div class="pt-3 my-16">
-  <div class="mb-16 text-3xl text-center font-semibold">
+  <div class="mb-16 text-2xl text-center font-semibold">
     <h1><%= t('.title') %></h1>
   </div>
   <!-- 検索フォーム -->
-  <div class="form-control mx-40">
-    <div class="input-group justify-evenly mb-10 flex-wrap">
-      <div class="flex items-start">
-        <input type="text" placeholder="Search…" class="input input-bordered mb-4 w-80" />
-        <button class="btn btn-square">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-        </button>
-      </div>
-      <div class="rounded-lg">
-        <%= link_to t('.create'), new_wish_list_path, class: "btn btn-primary btn-wide text-red-100" %>
-      </div>
+  <div class="form-control mb-10">
+    <div class="input-group flex justify-center">
+      <input type="text" placeholder="Search…" class="input input-bordered" />
+      <button class="btn btn-square">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+      </button>
     </div>
+  </div>
+  <div class="text-center rounded-lg">
+    <%= link_to t('.create'), new_wish_list_path, class: "btn btn-primary btn-lg text-red-100" %>
   </div>
 
 
   <!-- 欲しいものリスト一覧 -->
-  <div class="flex flex-wrap justify-evenly mx-20">
+  <div class="flex flex-wrap justify-evenly">
     <% if @wish_lists.present? %>
       <%= render @wish_lists %>
     <% else %>

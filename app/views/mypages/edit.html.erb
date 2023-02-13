@@ -5,21 +5,25 @@
     </div>
     <%= form_with model: @user, url: mypage_path, local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <div class="justify-items-center">
-        <div class="bg-neutral-content m-auto rounded-3xl h-auto w-96 text-center space-y-8">
-          <div class="pt-6">
-            <%= image_tag @user.avatar.url, class: 'm-auto', size: '120x120' %>
+      <div class="pb-4">
+        <div class="bg-neutral-content m-auto rounded-3xl mb-4 w-96 space-y-8">
+          <div class="pt-6 text-center">
+            <%= image_tag @user.avatar.url, class: 'm-auto mb-4', size: '120x120' %>
+            <%= f.file_field :avatar, onchange: 'previewFileWithId(preview)', accept: 'image/*', class: "file-input file-input-bordered file-input-primary" %>
+            <%= f.hidden_field :avatar_cache %>
           </div>
-          <%= f.file_field :avatar, onchange: 'previewFileWithId(preview)', accept: 'image/*', class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
-          <%= f.hidden_field :avatar_cache %>
-          <div class="mb-2">
-            <%= f.label :name %>
+          <div class="w-full max-w-xs m-auto">
+            <div class="mb-2">
+              <%= f.label :name %>
+            </div>
+            <%= f.text_field :name, class: 'input input-bordered bg-white w-full max-w-xs' %>
           </div>
-          <%= f.text_field :name, class: 'input input-bordered bg-white w-full max-w-xs' %>
-          <div class="mb-2">
-            <%= f.label :email %>
+          <div class="w-full max-w-xs m-auto">
+            <div class="mb-2">
+              <%= f.label :email %>
+            </div>
+            <%= f.text_field :email, class: 'input input-bordered bg-white w-full max-w-xs' %>
           </div>
-          <%= f.text_field :email, class: 'input input-bordered bg-white w-full max-w-xs' %>
           <div class="text-center">
             <%= f.submit class: "btn btn-primary btn-sm text-red-100 my-6" %>
           </div>
