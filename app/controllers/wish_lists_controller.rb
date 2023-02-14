@@ -20,7 +20,7 @@ class WishListsController < ApplicationController
   end
 
   def show
-    @item = @wish_list.items.includes(:user).order(created_at: :desc)
+    @item = @wish_list.items.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def edit; end

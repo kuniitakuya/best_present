@@ -1,20 +1,25 @@
 <% content_for(:title, @wish_list.list_name) %>
-<div class="my-16">
-  <div class="mb-16 text-3xl text-center font-semibold">
+<div class="my-16 pb-8">
+  <div class="mb-10 text-2xl text-center font-semibold">
     <h1><%= t('.title') %></h1>
   </div>
-  <div class="card w-60 bg-base-200 shadow-xl m-8 m-auto">
-    <figure class="px-10 pt-2">
+  <div class="card bg-base-100">
+    <figure class="px-10">
       <%= image_tag "present_box.png", class: "rounded-xl", size: "150x150" %>
     </figure>
-    <div class="card-body items-center text-center pt-5">
+    <div class="card-body items-center text-center pt-4">
       <h2 class="card-title"><%= @wish_list.list_name %></h2>
     </div>
-    <div>
+    <div class="flex justify-evenly my-6">
+      <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-wide btn-primary" %>
+    </div>
+    <div  class="flex flex-wrap justify-evenly">
         <%= render 'items/save_items', { item: @item }  %>
     </div>
-    <div class="flex justify-evenly my-4">
-      <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-active btn-primary" %>
+    <div class="pb-8">
+      <% if @item.present? %>
+        <%= paginate @item %>
+      <% end %>
     </div>
   </div>
 </div>
