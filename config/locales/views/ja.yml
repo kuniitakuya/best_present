@@ -1,7 +1,8 @@
 ja:
   defaults:
     home: 'HOME'
-    login: 'LOGIN'
+    navi_login: 'LOGIN'
+    login: 'ログイン'
     logout: 'LOGOUT'
     sign_up: 'SIGN UP'
     register: '登録'
