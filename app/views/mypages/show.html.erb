@@ -4,10 +4,8 @@
       <h1><%= t('.title') %></h1>
     </div>
     <div class="justify-items-center">
-      <div class="bg-neutral-content m-auto rounded-3xl h-96 w-80 text-center space-y-8">
-        <div class="pt-6">
-          <%= image_tag current_user.avatar.url, class: 'm-auto', size: '120x120' %>
-        </div>
+      <div class="m-auto text-center space-y-8">
+        <%= image_tag current_user.avatar.url, class: 'm-auto', size: '120x120' %>
         <div class="font-semibold text-xl">
           <%= current_user.name %>
         </div>
