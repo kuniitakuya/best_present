@@ -1,5 +1,5 @@
 <div class="flex justify-evenly my-4">
-  <%= link_to t('defaults.list.add'), new_wish_list_item_path(wish_list), class: "btn btn-active btn-primary" %>
-  <%= link_to t('defaults.list.edit'), edit_wish_list_path(wish_list), class: "btn btn-active btn-secondary" %>
-  <%= button_to t('defaults.list.delete'), wish_list_path(wish_list), class: "btn btn-active btn-accent", method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
+  <%= link_to t('defaults.list.add'), new_wish_list_item_path(wish_list), class: "btn btn-primary" %>
+  <%= link_to t('defaults.list.edit'), edit_wish_list_path(wish_list), class: "btn btn-secondary" %>
+  <%= button_to t('defaults.list.delete'), wish_list_path(wish_list), class: "btn btn-accent", method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
 </div>

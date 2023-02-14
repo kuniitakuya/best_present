@@ -1,5 +1,5 @@
 <% content_for(:title, t('.title')) %>
-<div class="my-16">
+<div class="my-16 pb-8">
   <div class="mb-16 text-2xl text-center font-semibold">
     <h1><%= t('.title') %></h1>
   </div>
@@ -25,7 +25,9 @@
       <p><%= t('.no_result') %></p>
     <% end %>
   </div>
-  <% if @wish_lists.present? %>
-    <%= paginate @wish_lists %>
-  <% end %>
+  <div class="pb-8">
+    <% if @wish_lists.present? %>
+      <%= paginate @wish_lists %>
+    <% end %>
+  </div>
 </div>
