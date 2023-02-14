@@ -62,6 +62,9 @@ gem 'rakuten_web_service'
 # ページネーション
 gem 'kaminari'
 
+# 検索機能
+gem 'ransack'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

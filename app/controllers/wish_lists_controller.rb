@@ -2,7 +2,8 @@ class WishListsController < ApplicationController
   before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wish_lists = current_user.wish_lists.includes(:user).order(created_at: :desc).page(params[:page])
+    @q = current_user.wish_lists.ransack(params[:q])
+    @wish_lists = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
