@@ -3,5 +3,15 @@
   <div class="mb-14 text-2xl text-center font-semibold">
     <h1><%= t('.title') %></h1>
   </div>
-  <%= render 'form', { wish_list: @wish_list } %>
+  <%= form_with model: @wish_list, local: true do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="space-y-4 mt-5">
+      <div class="w-full max-w-xs m-auto">
+        <%= f.text_field :list_name, placeholder: (t 'defaults.list.name'), class: 'input input-bordered bg-white w-full max-w-xs' %>
+      </div>
+      <div class="text-center">
+        <%= f.submit (t 'defaults.list.create'), class: 'btn btn-primary btn-wide text-red-100 my-8' %>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -1,11 +1,17 @@
-<%= form_with model: wish_list, local: true do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="space-y-4 mt-5">
-    <div class="w-full max-w-xs m-auto">
-      <%= f.text_field :list_name, placeholder: (t 'defaults.list.name'), class: 'input input-bordered bg-white w-full max-w-xs' %>
-    </div>
-    <div class="text-center">
-      <%= f.submit (t 'defaults.list.create'), class: 'btn btn-primary btn-wide text-red-100 my-8' %>
-    </div>
+<%= turbo_frame_tag wish_list do %>
+  <div class="card w-60 bg-base-200 shadow-xl m-8">
+    <figure class="px-10 pt-2">
+      <%= image_tag "present_box.png", class: "rounded-xl", size: "150x150" %>
+    </figure>
+    <%= form_with model: wish_list do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="card-body link link-hover pt-2">
+        <%= f.text_field :list_name, placeholder: (t 'defaults.list.name'), class: 'card-title input input-bordered text-center bg-white w-full max-w-xs' %>
+      </div>
+      <div class="text-center mb-4">
+        <%= f.submit (t 'defaults.list.update'), class: 'btn btn-secondary mb-4 w-40' %>
+        <%= link_to (t 'defaults.list.cancel'), wish_lists_path, class: "btn btn-accent w-40" %>
+      </div>
+    <% end %>
   </div>
 <% end %>
