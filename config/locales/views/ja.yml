@@ -12,9 +12,11 @@ ja:
     list:
       name: 'リスト名'
       create: '作成'
-      add: '追加'
-      edit: '編集'
-      delete: '削除'
+      add: 'リストに追加'
+      edit: 'リスト名編集'
+      delete: 'リストを削除'
+      update: 'リスト名更新'
+      cancel: 'キャンセル'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
