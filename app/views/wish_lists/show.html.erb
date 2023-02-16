@@ -11,7 +11,7 @@
       <h2 class="card-title"><%= @wish_list.list_name %></h2>
     </div>
     <div class="flex justify-evenly my-6">
-      <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-wide btn-primary" %>
+      <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-wide btn-primary text-red-100" %>
     </div>
     <div  class="flex flex-wrap justify-evenly">
         <%= render 'items/save_items', { item: @item }  %>
