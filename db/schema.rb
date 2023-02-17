@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_160513) do
 
   create_table "messages", force: :cascade do |t|
     t.text "text", null: false
-    t.string "image", null: false
+    t.string "message_image", null: false
     t.bigint "user_id", null: false
     t.bigint "wish_list_id", null: false
     t.datetime "created_at", null: false
