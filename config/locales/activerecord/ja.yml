@@ -13,3 +13,7 @@ ja:
         avatar: 'アイコン'
       wish_list:
         list_name: '名前'
+      message:
+        item_id: 'プレゼントする商品'
+        message_image: 'メッセージカード'
+        text: 'メッセージ'

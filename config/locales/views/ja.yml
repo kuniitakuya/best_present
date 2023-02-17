@@ -19,6 +19,7 @@ ja:
       cancel: 'キャンセル'
     message:
       require_login: 'ログインしてください'
+      create: 'メッセージ作成'
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
       add: "%{item}を追加しました"
@@ -65,5 +66,10 @@ ja:
       title: 'リスト詳細'
       list:
         add: '商品を追加'
+      share: 'シェア'
     edit:
       title: 'リスト編集'
+  messages:
+    new:
+      title: 'メッセージ作成'
+      create: '作成する'
