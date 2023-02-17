@@ -26,6 +26,10 @@ module.exports = {
           ...require("daisyui/src/colors/themes")["[data-theme=retro]"],
           "base-100": "#FBECC6",
           "accent-focus": "#F5D174",
+          "info": "#1DA1F2",
+          "info-content": "#FFFFFF",
+          "success": "#06C755",
+          "success-content": "#FFFFFF"
         },
       },
     ],
