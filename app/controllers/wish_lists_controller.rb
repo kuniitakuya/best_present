@@ -43,7 +43,7 @@ class WishListsController < ApplicationController
   private
 
   def set_wishlist
-    @wish_list = current_user.wish_lists.find(params[:id])
+    @wish_list = WishList.find(params[:id])
   end
 
   def wish_list_params

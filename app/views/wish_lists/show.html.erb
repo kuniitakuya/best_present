@@ -1,25 +1,54 @@
 <% content_for(:title, @wish_list.list_name) %>
 <div class="my-16 pb-8">
   <div class="mb-10 text-2xl text-center font-semibold">
-    <h1><%= t('.title') %></h1>
+    <% if current_user.own?(@wish_list) %>
+      <h1><%= t('.title') %></h1>
+    <% else %>
+      <h1><%= "#{@wish_list.user.name} の" %></h1>
+      <h1><%= "欲しいものリスト" %></h1>
+    <% end %>
   </div>
-  <div class="card bg-base-100">
+  <!-- リスト名 -->
+  <div class="card">
     <figure class="px-10">
       <%= image_tag "present_box.png", class: "rounded-xl", size: "150x150" %>
     </figure>
     <div class="card-body items-center text-center pt-4">
       <h2 class="card-title"><%= @wish_list.list_name %></h2>
     </div>
-    <div class="flex justify-evenly my-6">
-      <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-wide btn-primary text-red-100" %>
-    </div>
-    <div  class="flex flex-wrap justify-evenly">
-        <%= render 'items/save_items', { item: @item }  %>
-    </div>
-    <div class="pb-8">
-      <% if @item.present? %>
-        <%= paginate @item %>
+  </div>
+  <!-- SNSシェアボタン -->
+  <% if current_user.own?(@wish_list) %>
+    <div class="flex justify-center">
+      <%= link_to "https://twitter.com/share?url=#{request.url}%0a%0a&text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です!%0aメッセージを送ってプレゼントしてあげよう!%0a%0a&hashtags=BESPRE", target: :_blank, rel: "noopener noreferrer" do %>
+        <button class="btn btn-info">
+          <%= image_tag "twitter.png", :size => '24x24' %>
+          <p class="ml-4"><%= t('.share') %></p>
+        </button>
+      <% end %>
+      <%= link_to "https://social-plugins.line.me/lineit/share?url=#{request.url}%0a%0a&text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です!%0aメッセージを送ってプレゼントしてあげよう!%0a%0a&hashtags=BESPRE", target: :_blank, rel: "noopener noreferrer" do %>
+        <button class="btn btn-success">
+          <%= image_tag "line.png", :size => '24x24' %>
+          <p class="ml-4"><%= t('.share') %></p>
+        </button>
       <% end %>
     </div>
+  <% end %>
+  <!-- 商品追加ボタン or メッセージ作成ボタン -->
+  <div class="flex justify-evenly my-6">
+    <% if current_user.own?(@wish_list) %>
+      <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-wide btn-primary text-red-100" %>
+    <% else %>
+      <%= render 'send_message' %>
+    <% end %>
+  </div>
+  <!-- リストに保存した商品一覧 -->
+  <div  class="flex flex-wrap justify-evenly">
+    <%= render 'items/save_items', { item: @item }  %>
+  </div>
+  <div class="pb-8">
+    <% if @item.present? %>
+      <%= paginate @item %>
+    <% end %>
   </div>
 </div>
