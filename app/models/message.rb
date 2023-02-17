@@ -1,4 +1,5 @@
 class Message < ApplicationRecord
+  mount_uploader :message_image, MessageImageUploader
   belongs_to :user
   belongs_to :wish_list
 
