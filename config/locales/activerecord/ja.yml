@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       wish_list: '欲しいものリスト'
       item: '商品'
+      message: 'メッセージ'
     attributes:
       user:
         email: 'メールアドレス'
