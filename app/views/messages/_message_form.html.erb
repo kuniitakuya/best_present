@@ -14,9 +14,7 @@
       <%= f.file_field :message_image, onchange: 'previewFileWithId(preview)', class: 'file-input file-input-bordered file-input-primary w-full max-w-xs  bg-white', accept: 'image/*' %>
       <%= f.hidden_field :message_image_cache %>
       <div class='mt-3 mb-3'>
-        <%= image_tag @message.message_image.url,
-                      id: 'preview',
-                      size: '300x200' %>
+        <%= image_tag @message.message_image_url, size: '300x300' %>
       </div>
     </div>
     <div class="w-full max-w-xs m-auto">
