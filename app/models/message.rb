@@ -4,5 +4,6 @@ class Message < ApplicationRecord
   belongs_to :wish_list
 
   validates :text, presence: true, length: { maximum: 255 }
-  validates :image, presence: true
+  validates :message_image, presence: true
+  validates :select_item, presence: true
 end
