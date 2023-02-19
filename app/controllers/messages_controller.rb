@@ -6,12 +6,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @wish_list = current_user.wish_lists.find(params[:wish_list_id])
-    @messages = current_user.messages.new(message_params)
-    if @messages.save
-      redirect_to mypage_path, success: t('defaults.message.add', item: Message.model_name.human)
+    @wish_list = WishList.find(params[:wish_list_id])
+    @message = current_user.messages.new(message_params)
+    if @message.save
+      redirect_to mypage_path, success: t('defaults.message.created', item: Message.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_add', item: Message.model_name.human)
+      flash.now['danger'] = t('defaults.message.not_created', item: Message.model_name.human)
       render :new
     end
   end
@@ -23,6 +23,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:text, :message_image, :message_image_cache).merge(item_id: @item.id)
+    params.require(:message).permit(:text, :message_image, :message_image_cache, :select_item).merge(wish_list_id: @wish_list.id)
   end
 end
