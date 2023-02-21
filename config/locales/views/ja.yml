@@ -17,6 +17,9 @@ ja:
       delete: 'リストを削除'
       update: 'リスト名更新'
       cancel: 'キャンセル'
+    item:
+      add: '追加'
+      delete: '削除'
     message:
       require_login: 'ログインしてください'
       create: 'メッセージ作成'
