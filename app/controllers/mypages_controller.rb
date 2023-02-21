@@ -13,7 +13,17 @@ class MypagesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @sent_messages = Message.where(user_id: current_user.id)
+  end
+
+  def sent_messages
+    @sent_messages = Message.where(user_id: current_user.id)
+  end
+
+  def received_messages
+    @received_messages = Message.where(wish_list_id: current_user.wish_lists.ids)
+  end
 
   private
 
