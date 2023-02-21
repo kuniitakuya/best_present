@@ -6,7 +6,7 @@
       <p><%= number_with_delimiter(item.price) %>円</p>
       <div class="flex justify-evenly my-4">
         <% if current_user.own?(item) %>
-          <%= button_to t('defaults.list.delete'), wish_list_item_path(item), class: "btn btn-accent",method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
+          <%= button_to t('defaults.item.delete'), wish_list_item_path(item), class: "btn btn-accent", method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
         <% end %>
       </div>
     </div>

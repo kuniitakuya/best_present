@@ -12,11 +12,17 @@ ja:
     list:
       name: 'リスト名'
       create: '作成'
+      add: 'リストに追加'
+      edit: 'リスト名編集'
+      delete: 'リストを削除'
+      update: 'リスト名更新'
+      cancel: 'キャンセル'
+    item:
       add: '追加'
-      edit: '編集'
       delete: '削除'
     message:
       require_login: 'ログインしてください'
+      create: 'メッセージ作成'
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
       add: "%{item}を追加しました"
@@ -63,5 +69,9 @@ ja:
       title: 'リスト詳細'
       list:
         add: '商品を追加'
+      share: 'シェア'
     edit:
       title: 'リスト編集'
+  messages:
+    new:
+      title: 'メッセージ作成'

@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :wish_lists do
     resources :items, only: %i[new create destroy]
+    resources :messages, only: %i[new create destroy]
   end
-  resource :mypage, only: %i[show edit update]
 
+  resource :mypage, only: %i[show edit update] do
+    member do
+      get 'sent_messages'
+      get 'received_messages'
+    end
+  end
 end

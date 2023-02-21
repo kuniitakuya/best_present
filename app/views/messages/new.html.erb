@@ -1,0 +1,7 @@
+<% content_for(:title, t('.title')) %>
+<div class="my-16 w-96 text-primary-content m-auto">
+  <div class="mb-14 text-2xl text-center font-semibold">
+    <h1><%= t('.title') %></h1>
+  </div>
+  <%= render 'message_form', { wish_list: @wish_list, message: @message } %>
+</div>

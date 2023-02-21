@@ -30,7 +30,6 @@ class WishListsController < ApplicationController
     if @wish_list.update(wish_list_params)
       redirect_to @wish_list, success: t('defaults.message.updated', item: WishList.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_updated', item: WishList.model_name.human)
       render :edit
     end
   end
@@ -44,7 +43,7 @@ class WishListsController < ApplicationController
   private
 
   def set_wishlist
-    @wish_list = current_user.wish_lists.find(params[:id])
+    @wish_list = WishList.find(params[:id])
   end
 
   def wish_list_params

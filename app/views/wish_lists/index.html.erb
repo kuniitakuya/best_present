@@ -8,12 +8,12 @@
   <%= render 'search_form', url: wish_lists_path %>
 
   <!-- リスト作成ボタン -->
-  <div class="text-center rounded-lg">
+  <div class="text-center rounded-lg pt-6">
     <%= link_to t('.create'), new_wish_list_path, class: "btn btn-primary text-red-100" %>
   </div>
 
   <!-- 欲しいものリスト一覧 -->
-  <div class="flex flex-wrap justify-evenly">
+  <div class="flex flex-wrap justify-evenly pt-6">
     <% if @wish_lists.present? %>
       <%= render @wish_lists %>
     <% else %>

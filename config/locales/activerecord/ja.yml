@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       wish_list: '欲しいものリスト'
       item: '商品'
+      message: 'メッセージ'
     attributes:
       user:
         email: 'メールアドレス'
@@ -12,4 +13,8 @@ ja:
         name: '名前'
         avatar: 'アイコン'
       wish_list:
-        list_name: 'リスト名'
+        list_name: '名前'
+      message:
+        select_item: 'プレゼントする商品'
+        message_image: 'メッセージカード'
+        text: 'メッセージ'
