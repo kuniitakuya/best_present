@@ -1,0 +1,15 @@
+<div class="tabs w-80 text-center m-auto mt-20">
+  <%= link_to "贈ったメッセージ", sent_messages_mypage_path, class: "tab tab-bordered tab-active font-semibold" %>
+  <%= link_to "貰ったメッセージ", received_messages_mypage_path, class: "tab tab-bordered font-semibold" %>
+  <div>
+    <% @sent_messages.each do |message| %>
+      <div class="card card-compact w-60 bg-base-200 rounded-3xl text-center shadow-xl m-8">
+        <%= image_tag message.message_image.url %>
+        <div class="card-body">
+          <p><%= message.select_item %></p>
+          <p class=""><%= message.text %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="my-16">
+  <div class="mb-10 text-2xl text-center font-semibold">
+    <h1><%= t('mypages.show.title') %></h1>
+  </div>
+  <div class="justify-items-center">
+    <div class="m-auto text-center space-y-8">
+      <%= image_tag current_user.avatar.url, class: 'm-auto', size: '120x120' %>
+      <div class="font-semibold text-xl">
+        <%= current_user.name %>
+      </div>
+      <div class="text-xl">
+        <%= current_user.email %>
+      </div>
+      <div class="pt-4">
+        <%= link_to t('defaults.edit'), edit_mypage_path, class: 'btn btn-primary btn-sm text-red-100' %>
+      </div>
+    </div>
+  </div>
+  <div class="tabs bg-base-100 w-80 text-center m-auto mt-20">
+    <%= link_to "贈ったメッセージ", sent_messages_mypage_path, class: "tab tab-bordered" %>
+    <%= link_to "貰ったメッセージ", received_messages_mypage_path, class: "tab tab-bordered tab-active" %>
+    <div>
+      <% @received_messages.each do |message| %>
+        <div class="card card-compact w-60 bg-base-200 rounded-3xl text-center shadow-xl m-8">
+          <%= image_tag message.message_image.url %>
+          <div class="card-body">
+            <p class="card-title"><%= message.text %></p>
+            <p><%= message.select_item %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
