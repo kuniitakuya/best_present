@@ -31,7 +31,8 @@ module ApplicationHelper
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@knight92137'
+        site: '@knight92137',
+        image: image_url('ogp.png')
       }
     }
   end
