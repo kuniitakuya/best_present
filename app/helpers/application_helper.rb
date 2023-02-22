@@ -8,12 +8,12 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'BESPRE',
-      title: 'お互いにベストな選択ができる欲しいもの公開サービス',
+      title: 'BESPRE 〜欲しいものリスト〜',
       reverse: true,
       charset: 'utf-8',
       separator: '|',   #Webサイト名とページタイトルを区切るために使用されるテキスト
-      description: 'ページの説明',
-      keywords: 'ページキーワード',   #キーワードを「,」区切りで設定する
+      description: 'お互いにベストな選択ができる欲しいもの公開サービス',
+      keywords: 'BESPRE,欲しいものリスト',   #キーワードを「,」区切りで設定する
       canonical: request.original_url,   #優先するurlを指定する
       noindex: ! Rails.env.production?,
       icon: [                    #favicon、apple用アイコンを指定する

@@ -20,13 +20,13 @@
   <!-- SNSシェアボタン -->
   <% if current_user.own?(@wish_list) %>
     <div class="flex justify-center">
-      <%= link_to "https://twitter.com/share?url=#{request.url}%0a%0a&text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です!%0aメッセージを送ってプレゼントしてあげよう!%0a%0a&hashtags=BESPRE", target: :_blank, rel: "noopener noreferrer" do %>
+      <%= link_to "https://twitter.com/share?url=#{request.url}%0a&text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です！%0aメッセージを送ってプレゼントしてあげよう。%0a&hashtags=BESPRE,BESTPRESENT", target: :_blank, rel: "noopener noreferrer" do %>
         <button class="btn btn-info">
           <%= image_tag "twitter.png", :size => '24x24' %>
           <p class="ml-4"><%= t('.share') %></p>
         </button>
       <% end %>
-      <%= link_to "https://social-plugins.line.me/lineit/share?url=#{request.url}%0a%0a&text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です!%0aメッセージを送ってプレゼントしてあげよう!%0a%0a&hashtags=BESPRE", target: :_blank, rel: "noopener noreferrer" do %>
+      <%= link_to "https://social-plugins.line.me/lineit/share?url=#{request.url}&text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です！%0aメッセージを送ってプレゼントしてあげよう。", target: :_blank, rel: "noopener noreferrer" do %>
         <button class="btn btn-success">
           <%= image_tag "line.png", :size => '24x24' %>
           <p class="ml-4"><%= t('.share') %></p>
