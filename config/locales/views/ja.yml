@@ -36,6 +36,9 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
+  static_pages:
+    terms_of_service:
+      title: '利用規約'
   users:
     new:
       title: '新規登録'
@@ -75,3 +78,5 @@ ja:
   messages:
     new:
       title: 'メッセージ作成'
+  terms_of_service:
+    title: '利用規約'
