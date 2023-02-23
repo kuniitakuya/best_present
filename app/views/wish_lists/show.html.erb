@@ -1,3 +1,7 @@
+<% set_meta_tags(og: { title: "BESPRE 欲しいものリスト【#{@wish_list.list_name}】です！",
+  description: "#{current_user.name}さんの欲しいものリストを確認してメッセージを送ってあげよう",
+  image: image_url('ogp.png') },
+  twitter: { card: 'summary_large_image' }) %>
 <% content_for(:title, @wish_list.list_name) %>
 <div class="my-16 pb-8">
   <div class="mb-10 text-2xl text-center font-semibold">
@@ -20,13 +24,13 @@
   <!-- SNSシェアボタン -->
   <% if current_user.own?(@wish_list) %>
     <div class="flex justify-center">
-      <%= link_to "https://twitter.com/share?url=#{request.url}%0a&text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です！%0aメッセージを送ってプレゼントしてあげよう。%0a&hashtags=BESPRE,BESTPRESENT", target: :_blank, rel: "noopener noreferrer" do %>
+      <%= link_to "https://twitter.com/share?text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です！%0aメッセージを送ってプレゼントしてあげよう。%0a&hashtags=BESPRE%0a&url=#{request.url}", target: :_blank, rel: "noopener noreferrer" do %>
         <button class="btn btn-info">
           <%= image_tag "twitter.png", :size => '24x24' %>
           <p class="ml-4"><%= t('.share') %></p>
         </button>
       <% end %>
-      <%= link_to "https://social-plugins.line.me/lineit/share?url=#{request.url}&text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です！%0aメッセージを送ってプレゼントしてあげよう。", target: :_blank, rel: "noopener noreferrer" do %>
+      <%= link_to "https://social-plugins.line.me/lineit/share?text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です！%0aメッセージを送ってプレゼントしてあげよう。%0a&url=#{request.url}", target: :_blank, rel: "noopener noreferrer" do %>
         <button class="btn btn-success">
           <%= image_tag "line.png", :size => '24x24' %>
           <p class="ml-4"><%= t('.share') %></p>

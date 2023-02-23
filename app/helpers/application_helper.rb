@@ -7,21 +7,16 @@ module ApplicationHelper
 
   def default_meta_tags
     {
-      site: 'BESPRE',
-      title: 'BESPRE 〜欲しいものリスト〜',
-      reverse: true,
+      title: 'BESPRE',
       charset: 'utf-8',
-      separator: '|',   #Webサイト名とページタイトルを区切るために使用されるテキスト
-      description: 'お互いにベストな選択ができる欲しいもの公開サービス',
+      description: 'ベストな選択ができる欲しいもの公開サービス',
       keywords: 'BESPRE,欲しいものリスト',   #キーワードを「,」区切りで設定する
       canonical: request.original_url,   #優先するurlを指定する
-      noindex: ! Rails.env.production?,
       icon: [                    #favicon、apple用アイコンを指定する
         { href: image_url('favicon.ico') },
         { href: image_url('icon.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' }
       ],
       og: {
-        site_name: :site,
         title: :title,
         description: :description,
         type: 'website',
@@ -32,7 +27,6 @@ module ApplicationHelper
       twitter: {
         card: 'summary_large_image',
         site: '@knight92137',
-        image: image_url('ogp.png')
       }
     }
   end
