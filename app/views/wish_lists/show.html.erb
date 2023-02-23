@@ -1,8 +1,8 @@
-<% set_meta_tags(og: { title: "BESPRE 欲しいものリスト【#{@wish_list.list_name}】です！",
-  description: "#{current_user.name}さんの欲しいものリストを確認してメッセージを送ってあげよう",
-  image: image_url('ogp.png') },
-  twitter: { card: 'summary_large_image' }) %>
 <% content_for(:title, @wish_list.list_name) %>
+<% set_meta_tags(og: { title: "BESPRE 欲しいものリスト【#{@wish_list.list_name}】です！",
+                       description: "#{current_user.name}さんの欲しいものリストを確認してメッセージを送ってあげよう",
+                       image: image_url('ogp.png') },
+                       twitter: { card: 'summary_large_image' }) %>
 <div class="my-16 pb-8">
   <div class="mb-10 text-2xl text-center font-semibold">
     <% if current_user.own?(@wish_list) %>
