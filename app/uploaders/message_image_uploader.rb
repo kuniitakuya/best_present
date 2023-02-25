@@ -23,9 +23,6 @@ class MessageImageUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
-  def default_url
-    'present_box.png'
-  end
 
   # Create different versions of your uploaded files:
   process resize_to_fill: [1200, 1200]
