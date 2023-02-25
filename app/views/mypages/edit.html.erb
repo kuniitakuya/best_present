@@ -7,8 +7,8 @@
       <%= render 'shared/error_messages', object: f.object %>
       <div class="m-auto mb-4 space-y-8">
         <div class="text-center">
-          <%= image_tag @user.avatar.url, class: 'm-auto mb-4', size: '120x120' %>
-          <%= f.file_field :avatar, onchange: 'previewFileWithId(preview)', accept: 'image/*', class: "file-input file-input-bordered file-input-primary mt-8" %>
+          <%= image_tag @user.avatar.url, class: 'm-auto mb-4 rounded-full', size: '120x120' %>
+          <%= f.file_field :avatar, onchange: 'previewImage(preview)', accept: 'image/*', class: "file-input file-input-bordered file-input-primary mt-8" %>
           <%= f.hidden_field :avatar_cache %>
         </div>
         <div class="w-full max-w-xs m-auto">
