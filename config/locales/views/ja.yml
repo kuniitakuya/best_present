@@ -9,6 +9,7 @@ ja:
     mypages: 'MY PAGE'
     wish_lists: 'LIST'
     edit: 'プロフィール編集'
+    no_message: 'メッセージがありません'
     list:
       name: 'リスト名'
       create: '作成'
