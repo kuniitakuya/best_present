@@ -9,6 +9,8 @@ class MessagesController < ApplicationController
     @wish_list = WishList.find(params[:wish_list_id])
     @message = current_user.messages.new(message_params)
     if @message.save
+      image = OgpCreater.build(@message.text)
+      @message.update!(message_image: image)
       redirect_to mypage_path, success: t('defaults.message.created', item: Message.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_created', item: Message.model_name.human)
@@ -23,6 +25,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:text, :message_image, :message_image_cache, :select_item).merge(wish_list_id: @wish_list.id)
+    params.require(:message).permit(:text, :select_item).merge(wish_list_id: @wish_list.id)
   end
 end
