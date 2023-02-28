@@ -19,13 +19,16 @@ class MessageImageUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
+  def default_url
+    'message_card.png'
+  end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
 
   # Create different versions of your uploaded files:
-  process resize_to_fill: [1200, 1200]
+  process resize_to_fill: [500, 276]
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
