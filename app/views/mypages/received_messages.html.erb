@@ -27,10 +27,10 @@
           <div class="card card-compact w-80 bg-base-200 rounded-3xl text-center shadow-xl my-6 p-2 m-auto">
             <%= image_tag message.message_image.url, class:"rounded-3xl m-auto p-2", size: '300x165' %>
             <div class="card-body">
-              <p class="divider text-primary-focus">プレゼント</p>
-              <p><%= message.select_item %></p>
-              <p class="divider text-primary-focus">メッセージ</p>
-              <p class=""><%= message.text %></p>
+              <p class="divider text-primary-focus text-xl">From</p>
+              <p class="font-semibold text-xl mb-2"><%= message.sender %></p>
+              <p class="divider text-primary-focus text-xl">Present</p>
+              <p class="font-semibold"><%= message.select_item %></p>
             </div>
           </div>
         <% end %>
