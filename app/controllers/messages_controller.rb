@@ -25,6 +25,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:text, :select_item).merge(wish_list_id: @wish_list.id)
+    params.require(:message).permit(:text, :select_item, :receiver, :sender).merge(wish_list_id: @wish_list.id)
   end
 end
