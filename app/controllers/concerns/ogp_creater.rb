@@ -2,11 +2,11 @@ class OgpCreater
   require 'mini_magick'
   BASE_IMAGE_PATH = './app/assets/images/message_card.png'
   GRAVITY = 'center'
-  TEXT_POSITION = '0,0'
+  TEXT_POSITION = '0,20'
   FONT = './app/assets/fonts/NotoSansJP-Regular.otf'
   FONT_SIZE = 20
   INDENTION_COUNT = 18
-  ROW_LIMIT = 8
+  ROW_LIMIT = 5
 
   def self.build(text)
     text = prepare_text(text)
