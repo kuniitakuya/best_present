@@ -13,6 +13,8 @@
       </div>
       <%= f.text_area :text, class: "textarea textarea-bordered textarea-md w-full max-w-xs  bg-white" %>
     </div>
+    <%= f.hidden_field :receiver, :value => @wish_list.user.name %>
+    <%= f.hidden_field :sender, :value => current_user.name %>
     <div class="text-center">
       <%= f.submit t('defaults.list.create'), class: "btn btn-primary btn-md text-red-100 my-6" %>
     </div>
