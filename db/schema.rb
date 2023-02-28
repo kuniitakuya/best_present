@@ -32,6 +32,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_160513) do
     t.text "text", null: false
     t.string "message_image"
     t.string "select_item", null: false
+    t.string "sender", null: false
+    t.string "receiver", null: false
     t.bigint "user_id"
     t.bigint "wish_list_id"
     t.datetime "created_at", null: false
