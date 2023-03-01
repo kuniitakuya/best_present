@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :users, only: %i[new create]
-  resources :wish_lists do
+
+  resources :wish_lists, shallow: true do
     resources :items, only: %i[new create destroy]
     resources :messages, only: %i[new create destroy]
   end
