@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = current_user.items.find(params[:wish_list_id])
+    @item = current_user.items.find(params[:id])
     @item.destroy!
     redirect_to request.referer, success: t('defaults.message.deleted', item: Item.model_name.human)
   end
