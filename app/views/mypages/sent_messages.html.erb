@@ -32,6 +32,11 @@
               <p class="divider text-primary-focus text-xl">Present</p>
               <p class="font-semibold"><%= message.select_item %></p>
             </div>
+            <div class="flex justify-evenly my-4">
+              <% if current_user.own?(message) %>
+                <%= button_to t('defaults.item.delete'), message_path(message), class: "btn btn-accent", method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
+              <% end %>
+            </div>
           </div>
         <% end %>
       <% else %>

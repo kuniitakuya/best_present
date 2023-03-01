@@ -19,7 +19,9 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-
+    @message = current_user.messages.find(params[:id])
+    @message.destroy!
+    redirect_to request.referer, success: t('defaults.message.deleted', item: Message.model_name.human)
   end
 
   private
