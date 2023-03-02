@@ -1,8 +1,11 @@
 class MypagesController < ApplicationController
   before_action :set_user, only: %i[edit update]
 
-  def edit
+  def show
+    @sent_messages = Message.where(user_id: current_user.id)
   end
+
+  def edit; end
 
   def update
     if @user.update(user_params)
@@ -11,10 +14,6 @@ class MypagesController < ApplicationController
       flash.now['danger'] = t('defaults.message.not_updated', item: User.model_name.human)
       render :edit
     end
-  end
-
-  def show
-    @sent_messages = Message.where(user_id: current_user.id)
   end
 
   def sent_messages

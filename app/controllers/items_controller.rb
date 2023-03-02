@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
   def new
     search(params)
     @wish_list = current_user.wish_lists.find(params[:wish_list_id])
@@ -25,11 +24,11 @@ class ItemsController < ApplicationController
   private
 
   def search(params)
-    @items =[]
+    @items = []
     @keyword = params[:keyword]
     if @keyword.present?
       @results = RakutenWebService::Ichiba::Item.search(keyword: @keyword, page: params[:page],
-          hits: 30)
+                                                        hits: 30)
 
       @results.each do |result|
         item = Item.new(read(result))
@@ -45,7 +44,7 @@ class ItemsController < ApplicationController
     image_url = result["mediumImageUrls"][0]
     item_url = result["itemUrl"]
     {
-      item_name: item_name,
+      item_name:,
       price: item_price,
       image: image_url,
       url: item_url
