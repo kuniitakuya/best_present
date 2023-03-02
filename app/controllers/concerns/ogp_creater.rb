@@ -1,9 +1,9 @@
 class OgpCreater
   require 'mini_magick'
-  BASE_IMAGE_PATH = './app/assets/images/message_card.png'
-  GRAVITY = 'center'
-  TEXT_POSITION = '0,20'
-  FONT = './app/assets/fonts/NotoSansJP-Regular.otf'
+  BASE_IMAGE_PATH = './app/assets/images/message_card.png'.freeze
+  GRAVITY = 'center'.freeze
+  TEXT_POSITION = '0,20'.freeze
+  FONT = './app/assets/fonts/NotoSansJP-Regular.otf'.freeze
   FONT_SIZE = 20
   INDENTION_COUNT = 18
   ROW_LIMIT = 5
@@ -20,9 +20,7 @@ class OgpCreater
     end
   end
 
-  private
-
   def self.prepare_text(text)
-    text.to_s.scan(/.{1,#{INDENTION_COUNT}}/)[0...ROW_LIMIT].join("\n")
+    text.to_s.scan(/.{1,#{INDENTION_COUNT}}/o)[0...ROW_LIMIT].join("\n")
   end
 end

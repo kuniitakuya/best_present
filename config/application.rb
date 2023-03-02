@@ -34,7 +34,7 @@ module BestPresent
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    #rails gコマンドで生成するファイルの設定
+    # rails gコマンドで生成するファイルの設定
     config.generators do |g|
       g.assets false
       g.helper false
@@ -42,7 +42,7 @@ module BestPresent
     end
 
     config.i18n.default_locale = :ja
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
 
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local

@@ -6,9 +6,15 @@ class WishListsController < ApplicationController
     @wish_lists = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
+  def show
+    @item = @wish_list.items.includes(:user).order(created_at: :desc).page(params[:page])
+  end
+
   def new
     @wish_list = WishList.new
   end
+
+  def edit; end
 
   def create
     @wish_list = current_user.wish_lists.build(wish_list_params)
@@ -19,12 +25,6 @@ class WishListsController < ApplicationController
       render :new
     end
   end
-
-  def show
-    @item = @wish_list.items.includes(:user).order(created_at: :desc).page(params[:page])
-  end
-
-  def edit; end
 
   def update
     if @wish_list.update(wish_list_params)
@@ -38,7 +38,6 @@ class WishListsController < ApplicationController
     @wish_list.destroy!
     redirect_to request.referer, success: t('defaults.message.deleted', item: WishList.model_name.human)
   end
-
 
   private
 
