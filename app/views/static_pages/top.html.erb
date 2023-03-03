@@ -1,7 +1,52 @@
 <div>
-	<%= image_tag "logo.png", class: 'm-auto pt-16 pb-4 w-80' %>
-	<%= image_tag "subtitle.png", class: 'm-auto mb-16 w-96' %>
-</div>
-<div class="mb-16">
-	<%= render 'shared/footer' %>
+	<div>
+		<%= image_tag "logo.png", class: 'm-auto pt-16 pb-4 w-80' %>
+		<%= image_tag "subtitle.png", class: 'm-auto mb-16 w-96' %>
+	</div>
+	<div class="divider w-96 m-auto"></div>
+	<div class="px-6 mt-8">
+		<div class="py-4 text-center">
+			<h1 class="text-2xl font-bold">BESPREの使い方</h1>
+			<p class="mt-8 font-semibold">BESPREは、欲しいものリストを共有することで、<br>プレゼントをあげる側も貰う側もお互いに満足できる<br>欲しいもの公開サービスです。</p>
+		</div>
+		<div class="flex justify-center mt-8">
+			<div>
+				<%= image_tag "memo.png", class: '', :size => '250x250' %>
+			</div>
+			<div class="pt-6 ml-4">
+				<h1 class="text-xl font-semibold">①リストを作成</h1>
+				<p class="pt-4 font-semibold">欲しいものリストの名前を決めよう。<br>リスト名は誕生日などの<br>記念日だと分かりやすいよ!!</p>
+			</div>
+		</div>
+		<div class="flex justify-center my-8">
+			<div class="pt-6 mr-4">
+				<h1 class="text-xl font-semibold">②商品を追加</h1>
+				<p class="pt-4 font-semibold">欲しい商品を検索してリストに追加しよう。<br></p>
+			</div>
+			<div>
+				<%= image_tag "presentbox.png", class: '', :size => '250x250' %>
+			</div>
+		</div>
+		<div class="flex justify-center">
+			<div>
+				<%= image_tag "balloon.png", class: '', :size => '250x250' %>
+			</div>
+			<div class="pt-6 ml-4">
+				<h1 class="text-xl font-semibold">③リストの共有</h1>
+				<p class="pt-4 font-semibold">リストをTwitterやLINEで共有して、<br>友達や家族などに欲しいものを伝えよう。</p>
+			</div>
+		</div>
+		<div class="flex justify-center my-8">
+			<div class="pt-6 mr-4">
+				<h1 class="text-xl font-semibold">④メッセージを待つ</h1>
+				<p class="pt-4 font-semibold">欲しいものリストを見てくれた人が<br>メッセージしてくれるのを待とう。<br>プレゼントを贈ってくれるかも!!</p>
+			</div>
+			<div>
+				<%= image_tag "message.png", class: '', :size => '250x250' %>
+			</div>
+		</div>
+	</div>
+	<div class="mb-16">
+		<%= render 'shared/footer' %>
+	</div>
 </div>
