@@ -15,6 +15,6 @@ ja:
       wish_list:
         list_name: '名前'
       message:
-        select_item: 'プレゼントする商品'
+        select_item: 'プレゼントしたい商品'
         message_image: 'メッセージカード'
         text: 'メッセージ'
