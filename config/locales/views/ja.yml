@@ -37,6 +37,7 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
+      cancel_confirm: 'キャンセルしますか？'
   static_pages:
     terms_of_service:
       title: '利用規約'
