@@ -21,7 +21,7 @@ class WishListsController < ApplicationController
     if @wish_list.save
       redirect_to wish_list_path(@wish_list), success: t('defaults.message.created', item: WishList.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_created', item: WishList.model_name.human)
+      flash.now[:danger] = t('defaults.message.not_created', item: WishList.model_name.human)
       render :new
     end
   end

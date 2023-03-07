@@ -11,7 +11,7 @@ class MypagesController < ApplicationController
     if @user.update(user_params)
       redirect_to mypage_path, success: t('defaults.message.updated', item: User.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_updated', item: User.model_name.human)
+      flash[:danger] = t('defaults.message.not_updated', item: User.model_name.human)
       render :edit
     end
   end
