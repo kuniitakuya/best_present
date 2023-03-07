@@ -7,5 +7,5 @@ class WishList < ApplicationRecord
     ["created_at", "id", "list_name", "updated_at", "user_id"]
   end
 
-  validates :list_name, presence: true, length: { maximum: 255 }
+  validates :list_name, presence: true, length: { in: 1..75 }
 end
