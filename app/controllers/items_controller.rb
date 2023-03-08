@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   end
 
   def read(result)
-    item_name = result['itemName'].truncate(30, separator: '.')
+    item_name = result['itemName'].truncate(40, separator: '.')
     item_price = result['itemPrice']
     image_url = result["mediumImageUrls"][0].sub('_ex=128x128','_ex=560x560')
     item_url = result["itemUrl"]
