@@ -4,7 +4,9 @@
       <%= image_tag "present_box.png", class: "rounded-xl", size: "150x150" %>
     </figure>
     <%= form_with model: wish_list do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+      <div class="flex">
+        <%= render 'shared/error_messages', object: f.object %>
+      </div>
       <div class="card-body link link-hover pt-2">
         <%= f.text_field :list_name, placeholder: t('defaults.list.name'), class: 'card-title input input-bordered text-center bg-white w-full max-w-xs' %>
       </div>
