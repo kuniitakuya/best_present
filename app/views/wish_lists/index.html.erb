@@ -5,10 +5,20 @@
   </div>
 
   <!-- リスト検索フォーム -->
-  <%= render 'search_form', url: wish_lists_path %>
+  <% if @wish_lists.present? %>
+    <%= render 'search_form', url: wish_lists_path %>
+  <% else %>
+    <div class="text-center mb-14">
+      <ul class="steps">
+        <li class="step step-primary">リスト作成</li>
+        <li class="step">商品追加</li>
+        <li class="step">リストシェア</li>
+      </ul>
+    </div>
+  <% end %>
 
   <!-- リスト作成ボタン -->
-  <div class="text-center rounded-lg pt-6">
+  <div class="text-center rounded-lg">
     <%= link_to t('.create'), new_wish_list_path, class: "btn btn-primary text-red-100" %>
   </div>
 
@@ -17,7 +27,7 @@
     <% if @wish_lists.present? %>
       <%= render @wish_lists %>
     <% else %>
-      <p><%= t('.no_result') %></p>
+      <p class="mt-8 font-semibold"><%= t('.no_result') %></p>
     <% end %>
   </div>
   <div class="pb-8">
