@@ -10,6 +10,7 @@ ja:
     wish_lists: 'LIST'
     edit: 'プロフィール編集'
     no_message: 'メッセージがありません'
+    share: 'シェア'
     list:
       name: 'リスト名'
       create: '作成'
@@ -76,7 +77,6 @@ ja:
       title: 'リスト詳細'
       list:
         add: '商品を追加'
-      share: 'シェア'
     edit:
       title: 'リスト編集'
   messages:
