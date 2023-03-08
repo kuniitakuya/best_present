@@ -12,7 +12,7 @@ class MypagesController < ApplicationController
       redirect_to mypage_path, success: t('defaults.message.updated', item: User.model_name.human)
     else
       flash[:danger] = t('defaults.message.not_updated', item: User.model_name.human)
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

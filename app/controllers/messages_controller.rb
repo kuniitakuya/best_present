@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
       redirect_to mypage_path, success: t('defaults.message.created', item: Message.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_created', item: Message.model_name.human)
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
