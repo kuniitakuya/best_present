@@ -12,8 +12,9 @@
       <h1><%= "欲しいものリスト" %></h1>
     <% end %>
   </div>
+
   <!-- リスト名 -->
-  <div class="card">
+  <div class="card pb-4">
     <figure class="px-10">
       <%= image_tag "present_box.png", class: "rounded-xl", size: "150x150" %>
     </figure>
@@ -21,23 +22,29 @@
       <h2 class="card-title"><%= @wish_list.list_name %></h2>
     </div>
   </div>
-  <!-- SNSシェアボタン -->
-  <% if current_user.own?(@wish_list) %>
-    <div class="flex justify-center">
-      <%= link_to "https://twitter.com/share?text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です！%0aメッセージを送ってプレゼントしてあげよう。%0a&hashtags=BESPRE%0a&url=#{request.url}", target: :_blank, rel: "noopener noreferrer" do %>
-        <button class="btn btn-info">
-          <%= image_tag "twitter.png", :size => '24x24' %>
-          <p class="ml-4"><%= t('.share') %></p>
-        </button>
-      <% end %>
-      <%= link_to "https://social-plugins.line.me/lineit/share?text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です！%0aメッセージを送ってプレゼントしてあげよう。%0a&url=#{request.url}", target: :_blank, rel: "noopener noreferrer" do %>
-        <button class="btn btn-success">
-          <%= image_tag "line.png", :size => '24x24' %>
-          <p class="ml-4"><%= t('.share') %></p>
-        </button>
-      <% end %>
+
+  <% if current_user.own?(@wish_list) && @item.present? %>
+    <!-- STEP3 -->
+    <div class="text-center mb-10">
+      <ul class="steps">
+        <li class="step step-primary">リスト作成</li>
+        <li class="step step-primary">商品追加</li>
+        <li class="step step-primary">リストシェア</li>
+      </ul>
+    </div>
+    <!-- SNSシェアボタン -->
+    <%= render 'share_button' %>
+  <% elsif current_user.own?(@wish_list) && @item.blank? %>
+    <!-- STEP2 -->
+    <div class="text-center mb-10">
+      <ul class="steps">
+        <li class="step step-primary">リスト作成</li>
+        <li class="step step-primary">商品追加</li>
+        <li class="step step">リストシェア</li>
+      </ul>
     </div>
   <% end %>
+
   <!-- 商品追加ボタン or メッセージ作成ボタン -->
   <div class="flex justify-evenly my-6">
     <% if current_user.own?(@wish_list) %>
@@ -46,6 +53,7 @@
       <%= render 'send_message' %>
     <% end %>
   </div>
+
   <!-- リストに保存した商品一覧 -->
   <div  class="flex flex-wrap justify-evenly">
     <%= render 'items/save_items', { item: @item }  %>
