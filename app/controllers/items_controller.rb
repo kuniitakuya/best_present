@@ -10,8 +10,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to wish_list_path(@wish_list), success: t('defaults.message.add', item: Item.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_add', item: Item.model_name.human)
-      render :new
+      flash.now[:error] = t('defaults.message.not_add', item: Item.model_name.human)
+      render :new, status: :unprocessable_entity
     end
   end
 

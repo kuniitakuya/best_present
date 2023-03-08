@@ -21,8 +21,8 @@ class WishListsController < ApplicationController
     if @wish_list.save
       redirect_to wish_list_path(@wish_list), success: t('defaults.message.created', item: WishList.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_created', item: WishList.model_name.human)
-      render :new
+      flash.now[:error] = t('defaults.message.not_created', item: WishList.model_name.human)
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -30,7 +30,8 @@ class WishListsController < ApplicationController
     if @wish_list.update(wish_list_params)
       redirect_to @wish_list, success: t('defaults.message.updated', item: WishList.model_name.human)
     else
-      render :edit
+      flash.now[:error] = t('defaults.message.not_updated', item: WishList.model_name.human)
+      render :edit, status: :unprocessable_entity
     end
   end
 

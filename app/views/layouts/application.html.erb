@@ -24,11 +24,13 @@
       <%= render 'shared/header' %>
       <%= render 'shared/flash_message' %>
       <%= yield %>
-      <% if logged_in? %>
-        <%= render 'shared/bottom_navbar' %>
-      <% else %>
-        <%= render 'shared/before_login_bottom_navbar' %>
-      <% end %>
+      <div class="font-sawarabi">
+        <% if logged_in? %>
+          <%= render 'shared/bottom_navbar' %>
+        <% else %>
+          <%= render 'shared/before_login_bottom_navbar' %>
+        <% end %>
+      </div>
     </div>
   </body>
 </html>

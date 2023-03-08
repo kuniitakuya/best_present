@@ -4,13 +4,15 @@
       <%= image_tag "present_box.png", class: "rounded-xl", size: "150x150" %>
     </figure>
     <%= form_with model: wish_list do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+      <div class="flex">
+        <%= render 'shared/error_messages', object: f.object %>
+      </div>
       <div class="card-body link link-hover pt-2">
-        <%= f.text_field :list_name, placeholder: (t 'defaults.list.name'), class: 'card-title input input-bordered text-center bg-white w-full max-w-xs' %>
+        <%= f.text_field :list_name, placeholder: t('defaults.list.name'), class: 'card-title input input-bordered text-center bg-white w-full max-w-xs' %>
       </div>
       <div class="text-center mb-4">
-        <%= f.submit (t 'defaults.list.update'), class: 'btn btn-secondary mb-4 w-40' %>
-        <%= link_to (t 'defaults.list.cancel'), wish_lists_path, class: "btn btn-accent w-40" %>
+        <%= f.submit t('defaults.list.update'), class: 'btn btn-secondary mb-4 w-40' %>
+        <%= link_to t('defaults.list.cancel'), wish_lists_path, class: "btn btn-accent w-40", data: { turbo_method: :get, turbo_confirm: t('defaults.message.cancel_confirm') } %>
       </div>
     <% end %>
   </div>
