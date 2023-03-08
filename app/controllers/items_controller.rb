@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
   def read(result)
     item_name = result['itemName']
     item_price = result['itemPrice']
-    image_url = result["mediumImageUrls"][0]
+    image_url = result["mediumImageUrls"][0].sub('_ex=128x128','_ex=560x560')
     item_url = result["itemUrl"]
     {
       item_name:,
