@@ -79,6 +79,9 @@ ja:
         add: '商品を追加'
     edit:
       title: 'リスト編集'
+  items:
+    new:
+      no_result: '検索に一致する商品はありません。'
   messages:
     new:
       title: 'メッセージ作成'

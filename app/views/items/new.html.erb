@@ -12,6 +12,8 @@
     <div class="flex flex-wrap justify-evenly">
       <% if @items.present? %>
         <%= render 'item' %>
+      <% else %>
+        <p class="mt-8 font-semibold"><%= t('.no_result') %></p>
       <% end %>
     </div>
   </div>
