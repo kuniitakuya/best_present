@@ -5,7 +5,7 @@
   <div class="form-control">
     <%= form_with url: new_wish_list_item_path, method: :get, local: true do |f| %>
       <div class="input-group justify-center pb-8">
-          <%= f.search_field :keyword, value: params[:keyword], class: "input input-bordered", placeholder: "Search…" %>
+          <%= f.search_field :keyword, value: params[:keyword], class: "input input-bordered w-60", placeholder: "商品名" %>
           <%= f.submit '検索', class: "btn btn-square" %>
       </div>
     <% end %>
