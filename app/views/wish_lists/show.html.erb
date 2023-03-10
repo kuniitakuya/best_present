@@ -46,13 +46,14 @@
   <% end %>
 
   <!-- 商品追加ボタン or メッセージ作成ボタン -->
-  <div class="flex justify-evenly my-6">
-    <% if current_user.own?(@wish_list) %>
-      <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-wide btn-primary text-red-100" %>
-    <% else %>
-      <%= render 'send_message' %>
-    <% end %>
-  </div>
+  <% if current_user.own?(@wish_list) %>
+    <div class="flex justify-evenly my-6">
+    <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-wide btn-primary text-red-100" %>
+    </div>
+  <% else %>
+    <%= render 'send_message' %>
+  <% end %>
+
 
   <!-- リストに保存した商品一覧 -->
   <div  class="flex flex-wrap justify-evenly">
