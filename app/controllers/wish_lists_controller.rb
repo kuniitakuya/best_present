@@ -1,5 +1,6 @@
 class WishListsController < ApplicationController
   before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_login, only: %i[show]
 
   def index
     @q = current_user.wish_lists.ransack(params[:q])
