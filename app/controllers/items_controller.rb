@@ -27,8 +27,11 @@ class ItemsController < ApplicationController
     @items = []
     @keyword = params[:keyword]
     if @keyword.present?
-      @results = RakutenWebService::Ichiba::Item.search(keyword: @keyword, page: params[:page],
-                                                        hits: 30)
+      @results = RakutenWebService::Ichiba::Item.search(keyword: @keyword,
+                                                        page: params[:page],
+                                                        pageCount: 10,
+                                                        hits: 30,
+                                                        imageFlag: 1)
 
       @results.each do |result|
         item = Item.new(read(result))
