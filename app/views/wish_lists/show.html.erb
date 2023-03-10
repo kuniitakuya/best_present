@@ -1,11 +1,13 @@
 <% content_for(:title, @wish_list.list_name) %>
-<% set_meta_tags(og: { title: "BESPRE 欲しいものリスト【#{@wish_list.list_name}】です！",
-                       description: "#{current_user.name}さんの欲しいものリストを確認してメッセージを送ってあげよう",
-                       image: image_url('ogp.png') },
-                       twitter: { card: 'summary_large_image' }) %>
+<% if logged_in? && current_user.own?(@wish_list) %>
+  <% set_meta_tags(og: { title: "BESPRE 欲しいものリスト【#{@wish_list.list_name}】です！",
+                        description: "#{current_user.name}さんの欲しいものリストを確認してメッセージを送ってあげよう",
+                        image: image_url('ogp.png') },
+                        twitter: { card: 'summary_large_image' }) %>
+<% end %>
 <div class="my-16 pb-8">
   <div class="mb-10 text-2xl text-center font-semibold">
-    <% if current_user.own?(@wish_list) %>
+    <% if logged_in? && current_user.own?(@wish_list) %>
       <h1><%= t('.title') %></h1>
     <% else %>
       <h1><%= "#{@wish_list.user.name} の" %></h1>
@@ -23,7 +25,7 @@
     </div>
   </div>
 
-  <% if current_user.own?(@wish_list) && @item.present? %>
+  <% if logged_in? && current_user.own?(@wish_list) && @item.present? %>
     <!-- STEP3 -->
     <div class="text-center mb-10">
       <ul class="steps">
@@ -34,7 +36,7 @@
     </div>
     <!-- SNSシェアボタン -->
     <%= render 'share_button' %>
-  <% elsif current_user.own?(@wish_list) && @item.blank? %>
+  <% elsif logged_in? && current_user.own?(@wish_list) && @item.blank? %>
     <!-- STEP2 -->
     <div class="text-center mb-10">
       <ul class="steps">
@@ -46,14 +48,13 @@
   <% end %>
 
   <!-- 商品追加ボタン or メッセージ作成ボタン -->
-  <% if current_user.own?(@wish_list) %>
-    <div class="flex justify-evenly my-6">
-    <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-wide btn-primary text-red-100" %>
-    </div>
-  <% else %>
-    <%= render 'send_message' %>
-  <% end %>
-
+  <div class="flex justify-evenly my-6">
+    <% if logged_in? && current_user.own?(@wish_list) %>
+      <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-wide btn-primary text-red-100" %>
+    <% else %>
+      <%= render 'send_message' %>
+    <% end %>
+  </div>
 
   <!-- リストに保存した商品一覧 -->
   <div  class="flex flex-wrap justify-evenly">
