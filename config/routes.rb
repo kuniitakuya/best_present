@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy'
     resources :users, only: %i[index edit update show destroy]
     resources :wish_lists, only: %i[index edit update show destroy]
-    resources :messages, only: %i[index show destroy]
+    resources :messages, only: %i[index edit update show destroy]
   end
 
   root 'static_pages#top'
