@@ -12,9 +12,17 @@ ja:
         password_confirmation: 'パスワード確認'
         name: '名前'
         avatar: 'アイコン'
+        role: '権限'
+        general: '一般ユーザー'
+        admin: '管理者'
+        created_at: '作成日'
       wish_list:
         list_name: '名前'
+        created_at: '作成日'
       message:
         select_item: 'プレゼントしたい商品'
         message_image: 'メッセージカード'
         text: 'メッセージ'
+        sender: '贈る人'
+        receiver: '貰う人'
+        created_at: '作成日'
