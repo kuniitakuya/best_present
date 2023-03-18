@@ -1,0 +1,12 @@
+<div class="drawer-side fixed top-0 bottom-0 left-0 bg-base-300 pt-16">
+  <ul class="menu w-60 p-4">
+    <li class="pt-2 ml-4 text-xl"><%= current_user.name %></li>
+    <div class="divider"></div>
+    <!-- Sidebar content here -->
+    <li><%= link_to t('defaults.admin.user'), admin_users_path, class: "" %></li>
+    <li><%= link_to t('defaults.admin.wish_list'), admin_wish_lists_path, class: "" %></li>
+    <li><%= link_to t('defaults.admin.message'), admin_messages_path, class: "" %></li>
+    <div class="divider"></div>
+    <li><%= button_to t('defaults.admin.logout'), admin_logout_path, class: "", method: :delete %></li>
+  </ul>
+</div>

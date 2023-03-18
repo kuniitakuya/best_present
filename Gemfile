@@ -75,6 +75,9 @@ gem "aws-sdk-s3", require: false
 # 環境変数の設定
 gem 'dotenv-rails'
 
+# enumの多言語化対応
+gem 'enum_help'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

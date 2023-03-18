@@ -1,0 +1,12 @@
+<tr>
+  <td><%= wish_list.list_name %></td>
+  <td><%= wish_list.items.count %></td>
+  <td><%= wish_list.user.name %></td>
+  <td><%= wish_list.created_at %></td>
+  <td>
+    <div class="flex text-center">
+      <%= link_to t('defaults.admin.show'), admin_wish_list_path(wish_list), class: "btn btn-secondary w-30 mr-4" %>
+      <%= button_to t('defaults.admin.delete'), admin_wish_list_path(wish_list), class: "btn btn-accent w-30", method: :delete, data: { turbo_confirm: t('defaults.message.delete_confirm') } %>
+    </div>
+  </td>
+</tr>

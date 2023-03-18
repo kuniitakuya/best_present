@@ -1,0 +1,26 @@
+<% content_for(:title, t('.title')) %>
+<div class="my-16">
+  <div class="mb-10 text-2xl text-center font-semibold">
+    <h1><%= t('.title') %></h1>
+  </div>
+  <div class="justify-items-center">
+    <div class="m-auto text-center space-y-8">
+      <%= image_tag @message.message_image.url, class: 'm-auto', size: '300x165' %>
+      <div class="font-semibold text-xl">
+        <%= @message.text %>
+      </div>
+      <div class="text-xl">
+        <%= @message.select_item %>
+      </div>
+      <div class="text-xl">
+        <p>贈った人【<%= @message.sender %>】</p>
+      </div>
+      <div class="text-xl">
+        <p>貰った人【<%= @message.receiver %>】</p>
+      </div>
+      <div class="pt-4">
+        <%= link_to t('defaults.admin.edit'), edit_admin_message_path, class: 'btn btn-primary text-red-100' %>
+      </div>
+    </div>
+  </div>
+</div>

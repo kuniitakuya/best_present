@@ -39,6 +39,16 @@ ja:
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
       cancel_confirm: 'キャンセルしますか？'
+    admin:
+      user: "ユーザー一覧"
+      wish_list: "欲しいものリスト一覧"
+      message: "メッセージ一覧"
+      logout: "ログアウト"
+      show: "詳細"
+      edit: "編集"
+      delete: "削除"
+      update: '更新'
+      cancel: 'キャンセル'
   static_pages:
     terms_of_service:
       title: '利用規約'
@@ -87,3 +97,33 @@ ja:
       title: 'メッセージ作成'
   terms_of_service:
     title: '利用規約'
+  admin:
+    user_sessions:
+      new:
+        title: 'ログイン'
+      create:
+        success: 'ログインしました'
+        fail: 'ログインに失敗しました'
+      destroy:
+        success: 'ログアウトしました'
+    users:
+      index:
+        title: 'ユーザー一覧'
+      edit:
+        title: 'ユーザー編集'
+      show:
+        title: 'ユーザー詳細'
+    wish_lists:
+      index:
+        title: '欲しいものリスト一覧'
+      edit:
+        title: '欲しいものリスト編集'
+      show:
+        title: '欲しいものリスト詳細'
+    messages:
+      index:
+        title: 'メッセージ一覧'
+      edit:
+        title: 'メッセージ編集'
+      show:
+        title: 'メッセージ詳細'

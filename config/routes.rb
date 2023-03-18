@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    root to: 'users#index'
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+    resources :users, only: %i[index edit update show destroy]
+    resources :wish_lists, only: %i[index edit update show destroy]
+    resources :messages, only: %i[index edit update show destroy]
+  end
+
   root 'static_pages#top'
   get 'terms_of_service', to: 'static_pages#terms_of_service'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
