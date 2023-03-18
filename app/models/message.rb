@@ -4,7 +4,7 @@ class Message < ApplicationRecord
   belongs_to :wish_list
 
   def self.ransackable_attributes(_auth_object = nil)
-    ["id", "text", "sender", "receiver", "created_at" ]
+    ["id", "text", "sender", "receiver", "created_at"]
   end
 
   validates :text, presence: true, length: { maximum: 90 }

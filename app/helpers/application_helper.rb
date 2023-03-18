@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def page_title(page_title = '', admin = false)
+  def page_title(page_title = '', admin: false)
     base_title = if admin
                    'BESPRE(管理画面)'
                  else

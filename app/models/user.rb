@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   def self.ransackable_attributes(_auth_object = nil)
-    ["id", "name", "email", "created_at" ]
+    ["id", "name", "email", "created_at"]
   end
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
