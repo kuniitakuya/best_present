@@ -1,0 +1,14 @@
+<tr>
+  <td><%= user.id %></td>
+  <td><%= image_tag user.avatar.url, class: 'rounded-full', size: '50x50' %></td>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.role %></td>
+  <td><%= user.created_at %></td>
+  <td>
+    <div class="flex text-center">
+      <%= link_to t('defaults.admin.show'), admin_user_path(user), class: "btn btn-secondary w-30 mr-4" %>
+      <%= button_to t('defaults.admin.delete'), admin_user_path(user), class: "btn btn-accent w-30", method: :delete, data: { turbo_confirm: t('defaults.message.delete_confirm') } %>
+    </div>
+  </td>
+</tr>

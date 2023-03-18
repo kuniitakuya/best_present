@@ -1,0 +1,41 @@
+<% content_for(:title, t('.title')) %>
+  <div class="my-16">
+    <div class="mb-10 text-2xl text-center font-semibold">
+      <h1><%= t('.title') %></h1>
+    </div>
+    <%= form_with model: @user, url: admin_user_path, local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="m-auto mb-4 space-y-8">
+        <div class="text-center">
+          <%= image_tag @user.avatar.url, class: 'm-auto mb-4 rounded-full', size: '120x120' %>
+          <%= f.file_field :avatar, onchange: 'previewImage(preview)', accept: 'image/*', class: "file-input file-input-bordered file-input-primary mt-8" %>
+          <%= f.hidden_field :avatar_cache %>
+        </div>
+        <div class="w-full max-w-xs m-auto">
+          <div class="mb-2">
+            <%= f.label :name %>
+          </div>
+          <%= f.text_field :name, class: 'input input-bordered bg-white w-full max-w-xs' %>
+        </div>
+        <div class="w-full max-w-xs m-auto">
+          <div class="mb-2">
+            <%= f.label :email %>
+          </div>
+          <%= f.text_field :email, class: 'input input-bordered bg-white w-full max-w-xs' %>
+        </div>
+        <div class="w-full max-w-xs m-auto">
+          <div class="mb-2">
+            <%= f.label :role %>
+          </div>
+          <%= f.radio_button :role, :general, class: 'radio radio-primary' %>
+          <%= f.label :general %>
+          <%= f.radio_button :role, :admin, class: 'radio radio-primary' %>
+          <%= f.label :admin %>
+        </div>
+        <div class="text-center">
+          <%= f.submit class: "btn btn-primary btn-sm text-red-100 my-6" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

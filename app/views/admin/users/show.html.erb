@@ -1,0 +1,23 @@
+<% content_for(:title, t('.title')) %>
+<div class="my-16">
+  <div class="mb-10 text-2xl text-center font-semibold">
+    <h1><%= t('.title') %></h1>
+  </div>
+  <div class="justify-items-center">
+    <div class="m-auto text-center space-y-8">
+      <%= image_tag @user.avatar.url, class: 'm-auto rounded-full', size: '120x120' %>
+      <div class="font-semibold text-xl">
+        <%= @user.name %>
+      </div>
+      <div class="text-xl">
+        <%= @user.email %>
+      </div>
+      <div class="text-xl">
+        <%= @user.role %>
+      </div>
+      <div class="pt-4">
+        <%= link_to t('defaults.admin.edit'), edit_admin_user_path, class: 'btn btn-primary text-red-100' %>
+      </div>
+    </div>
+  </div>
+</div>
