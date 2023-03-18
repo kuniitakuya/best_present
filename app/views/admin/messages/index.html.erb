@@ -1,0 +1,35 @@
+<% content_for(:title, t('.title')) %>
+<%= search_form_for @search, url: admin_messages_path, html: { data: { turbo_frame: "messages_list" } } do |f| %>
+  <div class="input-group  mb-4">
+    <label class="label">
+      <p class="label-text text-xl">検索条件</p>
+    </label>
+    <%= f.search_field :text, class: 'input input-bordered ml-4', placeholder: "メッセージ" %>
+    <%= f.search_field :sender, class: 'input input-bordered ml-4', placeholder: "贈った人" %>
+    <%= f.search_field :receiver, class: 'input input-bordered ml-4', placeholder: "貰った人" %>
+    <div class="input-group-append ml-4">
+      <%= f.submit '検索', class: "btn btn-square" %>
+      <%= link_to "クリア", admin_messages_path, class: "btn" %>
+    </div>
+  </div>
+<% end %>
+<div class="divider"></div>
+<%= turbo_frame_tag "messages_list" do %>
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <thead>
+        <tr>
+          <th><%= sort_link(@search, :text) %></th>
+          <th><%= sort_link(@search, :sender) %></th>
+          <th><%= sort_link(@search, :receiver) %></th>
+          <th><%= sort_link(@search, :created_at) %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @messages %>
+      </tbody>
+    </table>
+    <%= paginate @messages %>
+  </div>
+<% end %>

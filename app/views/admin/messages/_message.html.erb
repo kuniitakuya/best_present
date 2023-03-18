@@ -1,0 +1,12 @@
+<tr>
+  <td><%= message.text.truncate(15, separator: '.') %></td>
+  <td><%= message.sender %></td>
+  <td><%= message.receiver %></td>
+  <td><%= message.created_at %></td>
+  <td>
+    <div class="flex text-center">
+      <%= link_to t('defaults.admin.show'), admin_message_path(message), class: "btn btn-secondary w-30 mr-4" %>
+      <%= button_to t('defaults.admin.delete'), admin_message_path(message), class: "btn btn-accent w-30", method: :delete, data: { turbo_confirm: t('defaults.message.delete_confirm') } %>
+    </div>
+  </td>
+</tr>
