@@ -29,16 +29,15 @@ class WishListsController < ApplicationController
 
   def update
     if @wish_list.update(wish_list_params)
-      redirect_to @wish_list, success: t('defaults.message.updated', item: WishList.model_name.human)
+      flash.now[:success] = t('defaults.message.updated', item: WishList.model_name.human)
     else
-      flash.now[:error] = t('defaults.message.not_updated', item: WishList.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @wish_list.destroy!
-    redirect_to request.referer, success: t('defaults.message.deleted', item: WishList.model_name.human)
+    flash.now[:success] = t('defaults.message.deleted', item: WishList.model_name.human)
   end
 
   private
