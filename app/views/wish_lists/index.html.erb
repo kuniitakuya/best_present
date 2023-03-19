@@ -23,16 +23,18 @@
   </div>
 
   <!-- 欲しいものリスト一覧 -->
-  <div class="flex flex-wrap justify-evenly pt-6">
-    <% if @wish_lists.present? %>
-      <%= render @wish_lists %>
-    <% else %>
-      <p class="mt-8 font-semibold"><%= t('.no_result') %></p>
-    <% end %>
-  </div>
-  <div class="pb-8">
-    <% if @wish_lists.present? %>
-      <%= paginate @wish_lists %>
-    <% end %>
-  </div>
+  <%= turbo_frame_tag "wish_list" do %>
+    <div class="flex flex-wrap justify-evenly pt-6">
+      <% if @wish_lists.present? %>
+        <%= render @wish_lists %>
+      <% else %>
+        <p class="mt-8 font-semibold"><%= t('.no_result') %></p>
+      <% end %>
+    </div>
+    <div class="pb-8">
+      <% if @wish_lists.present? %>
+        <%= paginate @wish_lists %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
