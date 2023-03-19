@@ -22,7 +22,9 @@
   <body>
     <div class="font-sawarabi">
       <%= render 'shared/header' %>
-      <%= render 'shared/flash_message' %>
+      <div id="flash", class="sticky top-16 left-0 right-0 z-10">
+        <%= render 'shared/flash_message' %>
+      </div>
       <%= yield %>
       <div class="font-sawarabi">
         <% if logged_in? %>
