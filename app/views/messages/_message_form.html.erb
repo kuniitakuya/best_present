@@ -5,7 +5,7 @@
       <div class="mb-2 ">
         <%= f.label :select_item %>
       </div>
-      <%= f.collection_select :select_item, @item, :item_name, :item_name, {prompt: "商品を選択してください"}, class: "select select-bordered w-full max-w-xs bg-white" %>
+      <%= f.select :select_item, [['秘密です…', '秘密です…'], ['決まってません…', '決まってません…']] + @item.pluck(:item_name), { include_blank: '商品を選択してください' }, class: "select select-bordered w-full max-w-xs bg-white" %>
     </div>
     <div class="w-full max-w-xs m-auto">
       <div class="mb-2">
