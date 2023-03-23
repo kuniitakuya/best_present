@@ -9,7 +9,6 @@ RSpec.describe "WishLists", type: :system do
     context 'リスト名の入力値が正常' do
       it '欲しいものリスト作成が成功する' do
         login_as(user)
-        with_list = build(:wish_list)
         visit new_wish_list_path
         fill_in "wish_list[list_name]", with: wish_list.list_name
         click_button I18n.t('defaults.list.create')
