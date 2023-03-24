@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
       page_count = 5
       (1..page_count).each do |page|
         @results = RakutenWebService::Ichiba::Item.search(keyword: @keyword,
-                                                          page: page,
+                                                          page:,
                                                           hits: 30,
                                                           imageFlag: 1)
         @results.each do |result|
