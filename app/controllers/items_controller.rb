@@ -27,15 +27,16 @@ class ItemsController < ApplicationController
     @items = []
     @keyword = params[:keyword]
     if @keyword.present?
-      @results = RakutenWebService::Ichiba::Item.search(keyword: @keyword,
-                                                        page: params[:page],
-                                                        pageCount: 10,
-                                                        hits: 30,
-                                                        imageFlag: 1)
-
-      @results.each do |result|
-        item = Item.new(read(result))
-        @items << item
+      page_count = 5
+      (1..page_count).each do |page|
+        @results = RakutenWebService::Ichiba::Item.search(keyword: @keyword,
+                                                          page: page,
+                                                          hits: 30,
+                                                          imageFlag: 1)
+        @results.each do |result|
+          item = Item.new(read(result))
+          @items << item
+        end
       end
     end
     @items = Kaminari.paginate_array(@items).page(params[:page])
