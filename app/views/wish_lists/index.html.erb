@@ -24,17 +24,15 @@
 
   <!-- 欲しいものリスト一覧 -->
   <%= turbo_frame_tag "wish_list" do %>
-    <div class="flex flex-wrap justify-evenly pt-6">
-      <% if @wish_lists.present? %>
-        <%= render @wish_lists %>
-      <% else %>
-        <p class="mt-8 font-semibold"><%= t('.no_result') %></p>
+    <% if @wish_lists.present? %>
+      <%= turbo_frame_tag "wish_lists-page-#{@wish_lists.current_page}" do %>
+        <div class="flex flex-wrap justify-evenly pt-6">
+          <%= render @wish_lists %>
+        </div>
+        <%= turbo_frame_tag "wish_lists-page-#{@wish_lists.next_page}", loading: :lazy, src: path_to_next_page(@wish_lists) %>
       <% end %>
-    </div>
-    <div class="pb-8">
-      <% if @wish_lists.present? %>
-        <%= paginate @wish_lists %>
-      <% end %>
-    </div>
+    <% else %>
+      <p class="mt-8 pt-6 font-semibold text-center"><%= t('.no_result') %></p>
+    <% end %>
   <% end %>
 </div>
