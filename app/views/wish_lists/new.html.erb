@@ -9,6 +9,11 @@
       <div class="w-full max-w-xs m-auto">
         <%= f.text_field :list_name, placeholder: (t 'defaults.list.name'), class: 'input input-bordered bg-white w-full max-w-xs' %>
       </div>
+      <div class="text-center space-y-4  pt-4">
+        <p>例えば…</p>
+        <p>・記念日の名前(ex. 誕生日, 結婚記念日)</p>
+        <p>・カテゴリー名(ex. 書籍, 食品, 家具)</p>
+      </div>
       <div class="text-center">
         <%= f.submit (t 'defaults.list.create'), class: 'btn btn-primary btn-wide text-red-100 my-8' %>
       </div>
