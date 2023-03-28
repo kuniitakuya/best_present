@@ -1,5 +1,5 @@
 <div class="flex justify-center mb-10">
-  <%= link_to "https://twitter.com/share?text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です！%0aプレゼントを選択してメッセージを送ってあげよう。%0a&hashtags=BESPRE%0a&url=#{request.url}", target: :_blank, rel: "noopener noreferrer" do %>
+  <%= link_to "https://twitter.com/share?text=#{current_user.name}さんの欲しいものリスト【#{@wish_list.list_name}】です！%0aプレゼントを選択してメッセージを送ってあげよう。%0a%23BESPRE%0a&url=#{request.url}", target: :_blank, rel: "noopener noreferrer" do %>
     <button class="btn btn-info">
       <%= image_tag "twitter.png", :size => '24x24' %>
       <p class="ml-4"><%= t('defaults.share') %></p>
