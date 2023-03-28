@@ -11,11 +11,14 @@ module ApplicationHelper
 
   def default_meta_tags
     {
+      site: 'BESPRE',
       title: 'BESPRE',
+      reverse: true,
       charset: 'utf-8',
       description: 'ベストな選択ができる欲しいもの公開サービス',
-      keywords: 'BESPRE,欲しいものリスト',   # キーワードを「,」区切りで設定する
+      keywords: 'BESPRE,欲しいものリスト,プレゼント',   # キーワードを「,」区切りで設定する
       canonical: request.original_url, # 優先するurlを指定する
+      separator: '|',
       icon: [                    # favicon、apple用アイコンを指定する
         { href: image_url('favicon.ico') },
         { href: image_url('icon.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' }
