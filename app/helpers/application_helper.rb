@@ -24,6 +24,7 @@ module ApplicationHelper
         { href: image_url('icon.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' }
       ],
       og: {
+        site_name: :site,
         title: :title,
         description: :description,
         type: 'website',
