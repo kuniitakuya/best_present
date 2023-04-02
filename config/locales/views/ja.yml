@@ -11,6 +11,7 @@ ja:
     edit: 'プロフィール編集'
     no_message: 'メッセージがありません'
     share: 'シェア'
+    password_reset: 'パスワードリセット'
     list:
       name: 'リスト名'
       create: '作成'
