@@ -107,4 +107,6 @@ group :development do
   # デバック
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  gem 'letter_opener_web'
 end
