@@ -78,6 +78,9 @@ gem 'dotenv-rails'
 # enumの多言語化対応
 gem 'enum_help'
 
+# 定数の管理
+gem 'config'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -107,4 +110,6 @@ group :development do
   # デバック
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  gem 'letter_opener_web'
 end

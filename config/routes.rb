@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
   namespace :admin do
     root to: 'users#index'
     get 'login', to: 'user_sessions#new'
@@ -18,6 +20,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :users, only: %i[new create]
+
+  resources :password_resets, only: %i[new create edit update]
 
   resources :wish_lists, shallow: true do
     resources :items, only: %i[new create destroy]
