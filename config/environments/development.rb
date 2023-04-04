@@ -36,10 +36,22 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   config.action_mailer.perform_caching = false
+  # パスワードリセット処理時、Gmailからメールを送信できるようにする
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
+  config.action_mailer.raise_delivery_errors = true
+  # メールを送信する方法
+  config.action_mailer.delivery_method = :smtp
+  # :smtpモードでの設定情報
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com", # SMTPサーバーのホスト名
+    :domain => 'gmail.com', # HELOドメイン
+    :port => 587, # SMTPサーバーのポート番号
+    :user_name => ENV['GMAIL_ADDRESS'], # Gmailアドレス
+    :password => ENV['GMAIL_APPKEY'], # アプリパスワード
+    :authentication => 'login', # 認証方法
+    :enable_starttls_auto => true # メールの送信にTLS認証を使用する
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -67,6 +79,4 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.action_mailer.delivery_method = :letter_opener_web
-  config.action_mailer.default_url_options = Settings.default_url_options.to_h
 end

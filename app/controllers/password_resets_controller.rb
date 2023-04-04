@@ -20,7 +20,7 @@ class PasswordResetsController < ApplicationController
     # トークンでユーザーを検索し有効期限もチェックします。 トークンが見つかり有効な場合、ユーザーを返す
     @user = User.load_from_reset_password_token(@token)
     # 有効期限切れなどでユーザーが取得できなかったとき、not_authenticatedとなる
-    return not_authenticated if @user.blank?
+    not_authenticated if @user.blank?
   end
 
   def update
@@ -37,7 +37,7 @@ class PasswordResetsController < ApplicationController
       redirect_to login_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 end
