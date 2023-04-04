@@ -18,6 +18,12 @@
         </div>
         <%= f.password_field :password, class: 'input input-bordered bg-white w-full max-w-xs' %>
       </div>
+      <div class="w-full max-w-xs m-auto">
+        <div class="mb-2">
+          <%= f.label :password_confirmation %>
+        </div>
+        <%= f.password_field :password_confirmation, class: 'input input-bordered bg-white w-full max-w-xs' %>
+      </div>
       <div class="text-center">
         <%= f.submit class: "btn btn-primary btn-wide text-red-100 my-6" %>
       </div>
