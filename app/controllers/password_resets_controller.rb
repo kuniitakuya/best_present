@@ -3,6 +3,14 @@ class PasswordResetsController < ApplicationController
 
   def new; end
 
+  def edit
+    @token = params[:id]
+    # トークンでユーザーを検索し有効期限もチェックします。 トークンが見つかり有効な場合、ユーザーを返す
+    @user = User.load_from_reset_password_token(@token)
+    # 有効期限切れなどでユーザーが取得できなかったとき、not_authenticatedとなる
+    not_authenticated if @user.blank?
+  end
+
   def create
     @user = User.find_by(email: params[:email])
 
@@ -13,14 +21,6 @@ class PasswordResetsController < ApplicationController
     # 電子メールが見つかったかどうかに関係なく、ユーザーの指示が送信されたことをユーザーに伝えます
     # システムに存在する電子メールに関する情報を攻撃者に漏らさないためです
     redirect_to login_path, success: t('.success')
-  end
-
-  def edit
-    @token = params[:id]
-    # トークンでユーザーを検索し有効期限もチェックします。 トークンが見つかり有効な場合、ユーザーを返す
-    @user = User.load_from_reset_password_token(@token)
-    # 有効期限切れなどでユーザーが取得できなかったとき、not_authenticatedとなる
-    not_authenticated if @user.blank?
   end
 
   def update
