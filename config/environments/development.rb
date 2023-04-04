@@ -44,13 +44,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # :smtpモードでの設定情報
   config.action_mailer.smtp_settings = {
-    :address => "smtp.gmail.com", # SMTPサーバーのホスト名
-    :domain => 'gmail.com', # HELOドメイン
-    :port => 587, # SMTPサーバーのポート番号
-    :user_name => ENV['GMAIL_ADDRESS'], # Gmailアドレス
-    :password => ENV['GMAIL_APPKEY'], # アプリパスワード
-    :authentication => 'login', # 認証方法
-    :enable_starttls_auto => true # メールの送信にTLS認証を使用する
+    address: 'smtp.gmail.com', # SMTPサーバーのホスト名
+    domain: 'gmail.com', # HELOドメイン
+    port: 587, # SMTPサーバーのポート番号
+    user_name: ENV['GMAIL_ADDRESS'], # Gmailアドレス
+    password: ENV['GMAIL_APPKEY'], # アプリパスワード
+    authentication: :login, # 認証方法
+    enable_starttls_auto: true # メールの送信にTLS認証を使用する
   }
 
   # Print deprecation notices to the Rails logger.
