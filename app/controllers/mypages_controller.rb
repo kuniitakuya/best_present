@@ -3,6 +3,7 @@ class MypagesController < ApplicationController
 
   def show
     @sent_messages = Message.where(user_id: current_user.id)
+    @received_messages = Message.where(wish_list_id: current_user.wish_lists.ids)
   end
 
   def edit; end
@@ -14,14 +15,6 @@ class MypagesController < ApplicationController
       flash[:error] = t('defaults.message.not_updated', item: User.model_name.human)
       render :edit, status: :unprocessable_entity
     end
-  end
-
-  def sent_messages
-    @sent_messages = Message.where(user_id: current_user.id)
-  end
-
-  def received_messages
-    @received_messages = Message.where(wish_list_id: current_user.wish_lists.ids)
   end
 
   private
