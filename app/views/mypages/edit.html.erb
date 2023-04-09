@@ -6,9 +6,9 @@
     <%= form_with model: @user, url: mypage_path, local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div class="m-auto mb-4 space-y-8">
-        <div class="text-center">
-          <%= image_tag @user.avatar.url, class: 'm-auto mb-4 rounded-full', size: '120x120' %>
-          <%= f.file_field :avatar, onchange: 'previewImage(preview)', accept: 'image/*', class: "file-input file-input-bordered file-input-primary mt-8" %>
+        <div class="text-center" data-controller='preview-image'>
+          <%= image_tag @user.avatar.url, class: 'm-auto mb-4', size: '120x120', data: { target: "preview-image.output",required: true } %>
+          <%= f.file_field :avatar, accept: 'image/*', class: "file-input file-input-bordered file-input-primary mt-8", data: {target: "preview-image.input", action: "preview-image#readURL" } %>
           <%= f.hidden_field :avatar_cache %>
         </div>
         <div class="w-full max-w-xs m-auto">
