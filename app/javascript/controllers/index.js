@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import TabsController from "./tabs_controller"
 application.register("tabs", TabsController)
+
+import PreviewImageController from "./preview_image_controller"
+application.register("preview-image", PreviewImageController)
