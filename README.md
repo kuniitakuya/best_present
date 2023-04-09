@@ -39,6 +39,7 @@
  - Ruby 3.1.3
  - Rails 7.0.4
 ### フロントエンド
+- JavaScript
 - Tailwind CSS
 - daisyUI
 ### インフラ
