@@ -54,5 +54,4 @@
 [Figma](https://www.figma.com/file/d47VWy4roJGA4JFev7faOw/BESPRE-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=DhdZSO4B8rrJgfgc-1)
 
 ## ■ER図
-
-![BESPRE_ER図](https://user-images.githubusercontent.com/102616360/227796077-f1fe0763-810c-4fe7-a231-c73e3bf3166d.png)
+![BESPRE ER図](https://user-images.githubusercontent.com/102616360/230975636-e146c9f8-70af-4a0c-95d0-4b9d32742dfb.png)
