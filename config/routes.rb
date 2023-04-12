@@ -28,5 +28,5 @@ Rails.application.routes.draw do
     resources :messages, only: %i[new create destroy]
   end
 
-  resource :mypage, only: %i[show edit update]
+  resources :mypages, only: %i[show edit update]
 end
