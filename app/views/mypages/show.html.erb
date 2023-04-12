@@ -1,10 +1,8 @@
 <% content_for(:title, t('.title')) %>
-<% if @share_message.present? %>
-  <% set_meta_tags(og: { title: "【#{@share_message.sender}】さんから届いたプレゼントメッセージです。",
-                        description: "欲しいものリストを作成してメッセージを受け取ってみよう！",
-                        image: @share_message.message_image },
-                        twitter: { card: 'summary_large_image' }) %>
-<% end %>
+<% set_meta_tags(og: { title: "プレゼントメッセージを開いてみましょう！",
+                      description: "欲しいものリストを作成してメッセージを受け取ってみよう！",
+                      image: image_url('ogp_message.png') },
+                      twitter: { card: 'summary_large_image' }) %>
 <% if logged_in? && current_user.id == @user.id %>
   <div class="my-16">
     <div class="mb-10 text-2xl text-center font-semibold">
