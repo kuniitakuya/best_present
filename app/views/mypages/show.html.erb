@@ -1,4 +1,8 @@
 <% content_for(:title, t('.title')) %>
+<% set_meta_tags(og: { title: "【#{@share_message.sender}】さんから届いたプレゼントメッセージです。",
+                      description: "",
+                      image: @share_message.message_image },
+                      twitter: { card: 'summary_large_image' }) %>
 <div class="my-16">
   <div class="mb-10 text-2xl text-center font-semibold">
     <h1><%= t('.title') %></h1>
