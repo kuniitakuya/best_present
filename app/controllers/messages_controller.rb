@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     if @message.save
       image = OgpCreater.build(@message.text)
       @message.update!(message_image: image)
-      redirect_to mypage_path, success: t('defaults.message.created', item: Message.model_name.human)
+      redirect_to mypage_path(current_user.id), success: t('defaults.message.created', item: Message.model_name.human)
     else
       flash.now[:error] = t('defaults.message.not_created', item: Message.model_name.human)
       render :new, status: :unprocessable_entity

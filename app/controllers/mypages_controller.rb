@@ -5,7 +5,7 @@ class MypagesController < ApplicationController
   def show
     @sent_messages = Message.where(user_id: @user.id)
     @received_messages = Message.where(wish_list_id: @user.wish_lists.ids)
-    @share_message = Message.find_by(wish_list_id: @user.wish_lists.ids)
+    @share_message = Message.find_by(wish_list_id: current_user.wish_lists.ids)
   end
 
   def edit; end
