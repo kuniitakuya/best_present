@@ -1,10 +1,11 @@
 class MypagesController < ApplicationController
-  before_action :set_user, only: %i[edit update]
+  before_action :set_user, only: %i[show edit update]
+  skip_before_action :require_login, only: %i[show]
 
   def show
-    @sent_messages = Message.where(user_id: current_user.id)
-    @received_messages = Message.where(wish_list_id: current_user.wish_lists.ids)
-    @share_message = Message.find_by(wish_list_id: current_user.wish_lists.ids)
+    @sent_messages = Message.where(user_id: @user.id)
+    @received_messages = Message.where(wish_list_id: @user.wish_lists.ids)
+    @share_message = Message.find_by(wish_list_id: @user.wish_lists.ids)
   end
 
   def edit; end
@@ -21,7 +22,7 @@ class MypagesController < ApplicationController
   private
 
   def set_user
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
 
   def user_params

@@ -75,6 +75,7 @@ ja:
   mypages:
     show:
       title: 'マイページ'
+      user_profile: 'プロフィール'
     edit:
       title: 'プロフィール編集'
   password_resets:

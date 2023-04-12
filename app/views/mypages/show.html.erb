@@ -1,27 +1,45 @@
 <% content_for(:title, t('.title')) %>
 <% if @share_message.present? %>
   <% set_meta_tags(og: { title: "【#{@share_message.sender}】さんから届いたプレゼントメッセージです。",
-                        description: "",
+                        description: "欲しいものリストを作成してメッセージを受け取ってみよう！",
                         image: @share_message.message_image },
                         twitter: { card: 'summary_large_image' }) %>
 <% end %>
-<div class="my-16">
-  <div class="mb-10 text-2xl text-center font-semibold">
-    <h1><%= t('.title') %></h1>
-  </div>
-  <div class="justify-items-center">
-    <div class="m-auto text-center space-y-8">
-      <%= image_tag current_user.avatar.url, class: 'm-auto rounded-full', size: '120x120' %>
-      <div class="font-semibold text-xl">
-        <%= current_user.name %>
-      </div>
-      <div class="text-xl">
-        <%= current_user.email %>
-      </div>
-      <div class="pt-4">
-        <%= link_to t('defaults.edit'), edit_mypage_path, class: 'btn btn-primary text-red-100' %>
+<% if logged_in? && current_user.id == @user.id %>
+  <div class="my-16">
+    <div class="mb-10 text-2xl text-center font-semibold">
+      <h1><%= t('.title') %></h1>
+    </div>
+    <div class="justify-items-center">
+      <div class="m-auto text-center space-y-8">
+        <%= image_tag current_user.avatar.url, class: 'm-auto rounded-full', size: '120x120' %>
+        <div class="font-semibold text-xl">
+          <%= current_user.name %>
+        </div>
+        <div class="text-xl">
+          <%= current_user.email %>
+        </div>
+        <div class="pt-4">
+          <%= link_to t('defaults.edit'), edit_mypage_path, class: 'btn btn-primary text-red-100' %>
+        </div>
       </div>
     </div>
+    <%= render "tab" %>
   </div>
-  <%= render "tab" %>
-</div>
+<% else %>
+  <div class="my-16">
+    <div class="mb-10 text-2xl text-center font-semibold">
+      <h1><%= "#{@user.name}さんの" %></h1>
+      <h1><%= t('.user_profile') %></h1>
+    </div>
+    <div class="justify-items-center">
+      <div class="m-auto text-center space-y-8">
+        <%= image_tag @user.avatar.url, class: 'm-auto rounded-full', size: '120x120' %>
+        <div class="font-semibold text-xl">
+          <%= @user.name %>
+        </div>
+      </div>
+    </div>
+    <%= render "tab" %>
+  </div>
+<% end %>

@@ -14,7 +14,7 @@
             <p class="font-semibold text-xl"><%= message.receiver %></p>
             <p class="divider text-primary-focus text-xl">Present</p>
             <p class="font-semibold"><%= message.select_item %></p>
-            <% if current_user.own?(message) %>
+            <% if logged_in? && current_user.own?(message) %>
               <div class="flex justify-evenly pt-4">
                 <%= button_to t('defaults.item.delete'), message_path(message), class: "btn btn-accent", method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
               </div>
@@ -39,20 +39,22 @@
             <p class="font-semibold text-xl"><%= message.sender %></p>
             <p class="divider text-primary-focus text-xl">Present</p>
             <p class="font-semibold"><%= message.select_item %></p>
-            <div class="flex justify-center pt-4">
-              <%= link_to "https://twitter.com/share?text=【#{message.sender}】さんからプレゼントメッセージが届きました！%0a%23BESPRE%0a&url=#{request.url}", target: :_blank, rel: "noopener noreferrer" do %>
-                <button class="btn btn-info mr-4">
-                  <%= image_tag "twitter.png", :size => '24x24' %>
-                  <p class="ml-4"><%= t('defaults.share') %></p>
-                </button>
-              <% end %>
-              <%= link_to "https://social-plugins.line.me/lineit/share?text=【#{message.sender}】さんからプレゼントメッセージが届きました！%0a&url=#{request.url}", target: :_blank, rel: "noopener noreferrer" do %>
-                <button class="btn btn-success">
-                  <%= image_tag "line.png", :size => '24x24' %>
-                  <p class="ml-4"><%= t('defaults.share') %></p>
-                </button>
-              <% end %>
-            </div>
+            <% if logged_in? && current_user.id == @user.id %>
+              <div class="flex justify-center pt-4">
+                <%= link_to "https://twitter.com/share?text=【#{message.sender}】さんからプレゼントメッセージが届きました！%0a%23BESPRE%0a&url=#{request.url}", target: :_blank, rel: "noopener noreferrer" do %>
+                  <button class="btn btn-info mr-4">
+                    <%= image_tag "twitter.png", :size => '24x24' %>
+                    <p class="ml-4"><%= t('defaults.share') %></p>
+                  </button>
+                <% end %>
+                <%= link_to "https://social-plugins.line.me/lineit/share?text=【#{message.sender}】さんからプレゼントメッセージが届きました！%0a&url=#{request.url}", target: :_blank, rel: "noopener noreferrer" do %>
+                  <button class="btn btn-success">
+                    <%= image_tag "line.png", :size => '24x24' %>
+                    <p class="ml-4"><%= t('defaults.share') %></p>
+                  </button>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>

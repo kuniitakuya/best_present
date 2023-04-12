@@ -17,7 +17,7 @@
       <% end %>
     </li>
     <li class=" ">
-      <%= link_to mypage_path do %>
+      <%= link_to mypage_path(current_user.id) do %>
         <button class="w-20">
           <%= image_tag "mypage.png", :size => '24x24', class: "ml-7" %>
           <span class="text-sm"><%= t('defaults.mypages')  %></span>
