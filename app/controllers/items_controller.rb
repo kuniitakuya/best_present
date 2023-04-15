@@ -25,22 +25,12 @@ class ItemsController < ApplicationController
 
   def validate_keyword(keyword)
     errors = []
-
-    if keyword.length > 128
-      errors << '検索キーワード全体は半角で128文字以内で指定する必要があります'
-    end
-
+    errors << '検索キーワード全体は半角で128文字以内で指定する必要があります' if keyword.length > 128
     keywords = keyword.split
     keywords.each do |word|
-      if word.length < 2 && !word.match?(/\p{Hiragana}|\p{Katakana}|\p{Punct}/)
-        errors << '各検索キーワードは半角2文字 もしくは 全角1文字 以上で指定する必要があります'
-      end
-
-      if word.length < 2 && word.match?(/\p{Hiragana}|\p{Katakana}|\p{Punct}/)
-        errors << 'ひらがな・カタカナ・記号の場合は2文字以上で指定する必要があります'
-      end
+      errors << '各検索キーワードは半角2文字 もしくは 全角1文字 以上で指定する必要があります' if word.length < 2 && !word.match?(/\p{Hiragana}|\p{Katakana}|\p{Punct}/)
+      errors << 'ひらがな・カタカナ・記号の場合は2文字以上で指定する必要があります' if word.length < 2 && word.match?(/\p{Hiragana}|\p{Katakana}|\p{Punct}/)
     end
-
     errors
   end
 
