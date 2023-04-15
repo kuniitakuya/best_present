@@ -23,20 +23,46 @@ class ItemsController < ApplicationController
 
   private
 
+  def validate_keyword(keyword)
+    errors = []
+
+    if keyword.length > 128
+      errors << '検索キーワード全体は半角で128文字以内で指定する必要があります'
+    end
+
+    keywords = keyword.split
+    keywords.each do |word|
+      if word.length < 2 && !word.match?(/\p{Hiragana}|\p{Katakana}|\p{Punct}/)
+        errors << '各検索キーワードは半角2文字 もしくは 全角1文字 以上で指定する必要があります'
+      end
+
+      if word.length < 2 && word.match?(/\p{Hiragana}|\p{Katakana}|\p{Punct}/)
+        errors << 'ひらがな・カタカナ・記号の場合は2文字以上で指定する必要があります'
+      end
+    end
+
+    errors
+  end
+
   def search(params)
     @items = []
     @keyword = params[:keyword]
     if @keyword.present?
-      page_count = 5
-      (1..page_count).each do |page|
-        @results = RakutenWebService::Ichiba::Item.search(keyword: @keyword,
-                                                          page:,
-                                                          hits: 30,
-                                                          imageFlag: 1)
-        @results.each do |result|
-          item = Item.new(read(result))
-          @items << item
+      errors = validate_keyword(@keyword)
+      if errors.empty?
+        page_count = 5
+        (1..page_count).each do |page|
+          @results = RakutenWebService::Ichiba::Item.search(keyword: @keyword,
+                                                            page:,
+                                                            hits: 30,
+                                                            imageFlag: 1)
+          @results.each do |result|
+            item = Item.new(read(result))
+            @items << item
+          end
         end
+      else
+        @search_errors = errors
       end
     end
     @items = Kaminari.paginate_array(@items).page(params[:page])
