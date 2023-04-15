@@ -3,6 +3,15 @@
     <h1>商品を検索</h1>
   </div>
   <div class="form-control">
+    <% if @search_errors.present? %>
+      <div class="alert alert-error shadow-lg w-80 m-auto mb-4 px-6">
+        <ul>
+          <% @search_errors.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <%= form_with url: new_wish_list_item_path, method: :get, local: true do |f| %>
       <div class="input-group justify-center pb-8">
           <%= f.search_field :keyword, value: params[:keyword], class: "input input-bordered w-60", placeholder: "商品名" %>
