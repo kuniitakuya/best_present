@@ -5,14 +5,11 @@ class WishListsController < ApplicationController
   def index
     @q = current_user.wish_lists.ransack(params[:q])
     @wish_lists = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+    @wish_list = WishList.new
   end
 
   def show
     @item = @wish_list.items.includes(:user).order(created_at: :desc).page(params[:page])
-  end
-
-  def new
-    @wish_list = WishList.new
   end
 
   def edit; end
