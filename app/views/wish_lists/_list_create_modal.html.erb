@@ -1,4 +1,4 @@
-<div class="pb-8 text-2xl text-center font-semibold">
+<div class="pb-4 text-2xl text-center font-semibold">
   <h1><%= t('defaults.list.create_modal') %></h1>
 </div>
 <%= form_with model: wish_list, local: true do |f| %>
@@ -9,8 +9,8 @@
     </div>
     <div class="text-center space-y-4  pt-4">
       <p>例えば…</p>
-      <p>・記念日の名前(ex. 誕生日, 結婚記念日)</p>
-      <p>・カテゴリー名(ex. 書籍, 食品, 家具)</p>
+      <p>・記念日の名前<br>(ex. 誕生日, 結婚記念日)</p>
+      <p>・カテゴリー名<br>(ex. 書籍, 食品, 家具)</p>
     </div>
     <div class="text-center">
       <%= f.submit (t 'defaults.list.create'), class: 'btn btn-primary btn-wide text-red-100 mt-8' %>
