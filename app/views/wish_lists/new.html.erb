@@ -1,22 +1,3 @@
-<% content_for(:title, t('.title')) %>
-<div class="my-16">
-  <div class="mb-14 text-2xl text-center font-semibold">
-    <h1><%= t('.title') %></h1>
-  </div>
-  <%= form_with model: @wish_list, local: true do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <div class="space-y-4 mt-5">
-      <div class="w-full max-w-xs m-auto">
-        <%= f.text_field :list_name, placeholder: (t 'defaults.list.name'), class: 'input input-bordered bg-white w-full max-w-xs' %>
-      </div>
-      <div class="text-center space-y-4  pt-4">
-        <p>例えば…</p>
-        <p>・記念日の名前(ex. 誕生日, 結婚記念日)</p>
-        <p>・カテゴリー名(ex. 書籍, 食品, 家具)</p>
-      </div>
-      <div class="text-center">
-        <%= f.submit (t 'defaults.list.create'), class: 'btn btn-primary btn-wide text-red-100 my-8' %>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= turbo_frame_tag "new_wish_list" do %>
+  <%= render "list_create_modal", wish_list: @wish_list %>
+<% end %>

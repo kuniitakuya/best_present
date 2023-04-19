@@ -15,6 +15,7 @@ ja:
     list:
       name: 'リスト名'
       create: '作成'
+      create_modal: 'リスト作成'
       add: 'リストに追加'
       edit: 'リスト名編集'
       delete: 'リストを削除'
@@ -94,8 +95,6 @@ ja:
       title: '欲しいものリスト一覧'
       no_result: '欲しいものリストがありません。'
       create: 'リスト作成'
-    new:
-      title: 'リスト作成'
     show:
       title: 'リスト詳細'
       list:

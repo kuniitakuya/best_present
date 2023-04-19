@@ -9,3 +9,6 @@ application.register("tabs", TabsController)
 
 import PreviewImageController from "./preview_image_controller"
 application.register("preview-image", PreviewImageController)
+
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)
