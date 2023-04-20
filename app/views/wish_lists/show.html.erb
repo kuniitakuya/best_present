@@ -3,7 +3,7 @@
                       description: "欲しいものリストを確認してメッセージを送ってあげよう",
                       image: image_url('ogp.png') },
                       twitter: { card: 'summary_large_image' }) %>
-<div class="my-16 pb-8">
+<div class="my-16 pb-8" data-controller="modal">
   <div class="mb-10 text-2xl text-center font-semibold">
     <% if logged_in? && current_user.own?(@wish_list) %>
       <h1><%= t('.title') %></h1>
@@ -51,6 +51,12 @@
       <%= link_to t('.list.add'), new_wish_list_item_path(@wish_list), class: "btn btn-wide btn-primary text-red-100" %>
     <% else %>
       <%= render 'send_message' %>
+      <!-- リスト作成モーダル -->
+      <div data-modal-target="modal" data-action="turbo:frame-load->modal#open turbo:submit-end->modal#close" class="hidden fixed m-auto w-screen h-screen top-0 left-0 bg-gray-700/50 z-10">
+        <div class="card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-max bg-base-100 p-10">
+          <%= turbo_frame_tag "new_message" %>
+        </div>
+      </div>
     <% end %>
   </div>
 
