@@ -16,7 +16,7 @@
             <p class="font-semibold"><%= message.select_item %></p>
             <% if logged_in? && current_user.own?(message) %>
               <div class="flex justify-evenly pt-4">
-                <%= button_to t('defaults.item.delete'), message_path(message), class: "btn btn-accent", method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
+                <%= button_to t('defaults.item.delete'), message_path(message), class: "btn btn-accent", method: :delete, data: { turbo_confirm: t('defaults.message.delete_confirm') } %>
               </div>
             <% end %>
           </div>
