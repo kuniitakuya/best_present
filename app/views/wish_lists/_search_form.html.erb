@@ -1,8 +1,5 @@
-<%= search_form_for @q, url: url, html: { data: { turbo_frame: "wish_list" } } do |f| %>
-  <div class="input-group justify-center m-auto mb-14">
-    <%= f.search_field :list_name_cont, class: 'input input-bordered w-60', placeholder: "リスト名" %>
-    <div class="input-group-append">
-      <%= f.submit '検索', class: "btn btn-square" %>
-    </div>
+<%= search_form_for @q, url: url, html: { data: { turbo_frame: "wish_list", controller: "form", action: "input->form#submit" } } do |f| %>
+  <div class="input text-center m-auto mb-14">
+    <%= f.search_field :list_name_cont, class: 'input input-bordered w-60', placeholder: "リスト名 検索" %>
   </div>
 <% end %>
