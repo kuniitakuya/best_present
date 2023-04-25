@@ -12,3 +12,6 @@ application.register("preview-image", PreviewImageController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+ import FormController from "./form_controller.js"
+ application.register("form", FormController)
