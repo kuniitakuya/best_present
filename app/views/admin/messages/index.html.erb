@@ -1,5 +1,5 @@
 <% content_for(:title, t('.title')) %>
-<%= search_form_for @search, url: admin_messages_path, html: { data: { turbo_frame: "messages_list" } } do |f| %>
+<%= search_form_for @search, url: admin_messages_path, html: { data: { turbo_frame: "messages_list", controller: "form", action: "input->form#submit" } } do |f| %>
   <div class="input-group  mb-4">
     <label class="label">
       <p class="label-text text-xl">検索条件</p>
