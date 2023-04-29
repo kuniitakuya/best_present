@@ -7,7 +7,6 @@
     <%= f.search_field :name_cont, class: 'input input-bordered ml-4', placeholder: "名前" %>
     <%= f.search_field :email_cont, class: 'input input-bordered ml-4', placeholder: "メールアドレス" %>
     <div class="input-group-append ml-4">
-      <%= f.submit '検索', class: "btn btn-square" %>
       <%= link_to "クリア", admin_users_path, class: "btn" %>
     </div>
   </div>
