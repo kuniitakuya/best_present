@@ -6,6 +6,7 @@
   <td>
     <div class="flex text-center">
       <%= link_to t('defaults.admin.show'), admin_wish_list_path(wish_list), class: "btn btn-secondary w-30 mr-4" %>
+      <%= link_to t('defaults.admin.edit'), edit_admin_wish_list_path(wish_list), class: 'btn btn-primary w-30 mr-4' %>
       <%= button_to t('defaults.admin.delete'), admin_wish_list_path(wish_list), class: "btn btn-accent w-30", method: :delete, data: { turbo_confirm: t('defaults.message.delete_confirm') } %>
     </div>
   </td>
