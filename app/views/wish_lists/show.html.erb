@@ -19,7 +19,10 @@
       <%= image_tag "present_box.png", class: "rounded-xl", size: "150x150" %>
     </figure>
     <div class="card-body items-center text-center pt-4">
-      <h2 class="card-title"><%= @wish_list.list_name %></h2>
+      <h2 class="card-title text-2xl"><%= @wish_list.list_name %></h2>
+      <% if @wish_list.date.present? %>
+        <p class="pt-2 text-xl"><%= " #{l @wish_list.date}" %></p>
+      <% end %>
     </div>
   </div>
 

@@ -139,3 +139,6 @@ ja:
         title: 'メッセージ編集'
       show:
         title: 'メッセージ詳細'
+  time:
+    formats:
+      default: "%Y/%m/%d"
