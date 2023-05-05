@@ -17,8 +17,9 @@ ja:
         admin: '管理者'
         created_at: '作成日'
       wish_list:
-        list_name: '名前'
+        list_name: 'リスト名（必須）'
         created_at: '作成日'
+        date: '欲しい日（任意）'
       message:
         select_item: 'プレゼントしたい商品'
         message_image: 'メッセージカード'
