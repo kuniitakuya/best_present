@@ -5,7 +5,16 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="space-y-4 mt-5">
     <div class="w-full max-w-xs m-auto">
+      <div class="mb-2">
+        <%= f.label :list_name, WishList.human_attribute_name(:list_name) %>
+      </div>
       <%= f.text_field :list_name, placeholder: (t 'defaults.list.name'), class: 'input input-bordered bg-white w-full max-w-xs' %>
+    </div>
+    <div class="w-full max-w-xs m-auto pt-2">
+      <div class="mb-2">
+        <%= f.label :date, WishList.human_attribute_name(:date) %>
+      </div>
+      <%= f.date_field :date, min: Time.zone.now, class: 'input input-bordered bg-white w-full max-w-xs' %>
     </div>
     <div class="text-center space-y-4  pt-4">
       <p>例えば…</p>
